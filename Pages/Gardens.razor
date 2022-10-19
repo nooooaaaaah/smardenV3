@@ -5,23 +5,38 @@
 
 <h3>Gardens</h3>
 
-@if (getUserError)
-{
-    <p>Unable to get users from Smarden_API. Please try again later.</p>
-}
-else
-{
-    <ul>
-        @foreach (var user in users)
-        {
-            <li>@user.Name</li>
-        }
-    </ul>
-}
+<TableTemplate Items="gardens" Context="garden">
+    <TableHeader>
+        <th>GardenID</th>
+        <th>Name</th>
+        <th>UserID</th>
+    </TableHeader>
+    <RowTemplate>
+        <td>@garden.GardenID</td>
+        <td>@garden.Name</td>
+        <td>@garden.UserID</td>
+    </RowTemplate>
+
+</TableTemplate>
+
+
+@* @if (getgardenError)
+    {
+    <p>Unable to get gardens from Smarden_API. Please try again later.</p>
+    }
+    else
+    {
+    <ol>
+    @foreach (var garden in gardens)
+    {
+    <li>@garden.Name</li>
+    }
+    </ol>
+    } *@
 
 @code {
-    private IEnumerable<SmardenUsers> users = Array.Empty<SmardenUsers>();
-    private bool getUserError;
+    private IEnumerable<GardenData>? gardens = Array.Empty<GardenData>();
+    private bool getgardenError;
     private bool shouldRender;
 
     protected override bool ShouldRender() => shouldRender;
@@ -29,7 +44,7 @@ else
     protected override async Task OnInitializedAsync()
     {
         var request = new HttpRequestMessage(HttpMethod.Get,
-        "https://localhost:7137/api/User");
+        "https://localhost:7137/api/garden");
 
 
         var client = ClientFactory.CreateClient();
@@ -39,20 +54,25 @@ else
         if (response.IsSuccessStatusCode)
         {
             using var responseStream = await response.Content.ReadAsStreamAsync();
-            users = await JsonSerializer.DeserializeAsync
-            <IEnumerable<SmardenUsers>>(responseStream);
+            gardens = await JsonSerializer.DeserializeAsync
+            <IEnumerable<GardenData>>(responseStream);
         }
         else
         {
-            getUserError = true;
+            getgardenError = true;
         }
 
         shouldRender = true;
     }
 
-    public class SmardenUsers
+    public class GardenData
     {
-        [JsonPropertyName("userName")]
-        public string Name { get; set; }
+        [JsonPropertyName("gardenId")]
+        public string? GardenID { get; set; }
+        [JsonPropertyName("gardenName")]
+        public string? Name { get; set; }
+        [JsonPropertyName("userId")]
+        public string? UserID { get; set; }
+
     }
 }

@@ -8,57 +8,61 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = SmardenV3
 build_property.RootNamespace = SmardenV3
-build_property.ProjectDir = C:\Users\gaming\Documents\Projects\CIS 410\SmardenV3\
+build_property.ProjectDir = /Users/noahspielman/Projects/CS410 Workspace/smardenV3/
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\gaming\Documents\Projects\CIS 410\SmardenV3
+build_property.MSBuildProjectDirectory = /Users/noahspielman/Projects/CS410 Workspace/smardenV3
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/gaming/Documents/Projects/CIS 410/SmardenV3/App.razor]
+[/Users/noahspielman/Projects/CS410 Workspace/smardenV3/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gaming/Documents/Projects/CIS 410/SmardenV3/Pages/Counter.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
+[/Users/noahspielman/Projects/CS410 Workspace/smardenV3/Pages/Counter.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ291bnRlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gaming/Documents/Projects/CIS 410/SmardenV3/Pages/FetchData.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmV0Y2hEYXRhLnJhem9y
+[/Users/noahspielman/Projects/CS410 Workspace/smardenV3/Pages/FetchData.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRmV0Y2hEYXRhLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gaming/Documents/Projects/CIS 410/SmardenV3/Pages/Gardens.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcR2FyZGVucy5yYXpvcg==
+[/Users/noahspielman/Projects/CS410 Workspace/smardenV3/Pages/Gardens.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvR2FyZGVucy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gaming/Documents/Projects/CIS 410/SmardenV3/Pages/Index.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
+[/Users/noahspielman/Projects/CS410 Workspace/smardenV3/Pages/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gaming/Documents/Projects/CIS 410/SmardenV3/Shared/SurveyPrompt.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
+[/Users/noahspielman/Projects/CS410 Workspace/smardenV3/Shared/SurveyPrompt.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL1N1cnZleVByb21wdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gaming/Documents/Projects/CIS 410/SmardenV3/_Imports.razor]
+[/Users/noahspielman/Projects/CS410 Workspace/smardenV3/Shared/TableTemplate.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL1RhYmxlVGVtcGxhdGUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/noahspielman/Projects/CS410 Workspace/smardenV3/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gaming/Documents/Projects/CIS 410/SmardenV3/Shared/MainLayout.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = b-hviwomtupx
+[/Users/noahspielman/Projects/CS410 Workspace/smardenV3/Shared/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL01haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-kuqv94nod1
 
-[C:/Users/gaming/Documents/Projects/CIS 410/SmardenV3/Shared/NavMenu.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = b-g076hgns7k
+[/Users/noahspielman/Projects/CS410 Workspace/smardenV3/Shared/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL05hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-a0fc7m8m8g
 
-[C:/Users/gaming/Documents/Projects/CIS 410/SmardenV3/Pages/Error.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+[/Users/noahspielman/Projects/CS410 Workspace/smardenV3/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gaming/Documents/Projects/CIS 410/SmardenV3/Pages/_Host.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0hvc3QuY3NodG1s
+[/Users/noahspielman/Projects/CS410 Workspace/smardenV3/Pages/_Host.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvX0hvc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gaming/Documents/Projects/CIS 410/SmardenV3/Pages/_Layout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0xheW91dC5jc2h0bWw=
+[/Users/noahspielman/Projects/CS410 Workspace/smardenV3/Pages/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvX0xheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
