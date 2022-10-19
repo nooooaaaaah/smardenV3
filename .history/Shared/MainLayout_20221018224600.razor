@@ -1,0 +1,27 @@
+﻿@inherits LayoutComponentBase
+
+<div style="@sidebarWidth" class="sidebar">
+    <a class="closebtn" @onclick="CloseNav">&times;</a>
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Clients</a>
+    <a href="#">Contact</a>
+</div>
+
+<div style="@mainMargin">
+    @if (width == 0)
+    {
+    <button class="openbtn" @onclick="OpenNav">&#9776; Open Sidebar</button>
+    } else {
+    <h2>Collapsed Sidebar</h2>
+    }
+    <p>@Body</p>
+</div>
+
+@code {
+    int width = 0;
+    string sidebarWidth => $"width: {width}px;";
+    string mainMargin => $"margin-left: {width}px;";
+    void OpenNav() => width = 250;
+    void CloseNav() => width = 0;
+}

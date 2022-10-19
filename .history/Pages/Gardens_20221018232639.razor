@@ -1,0 +1,58 @@
+﻿@page "/gardens"
+@using System.Text.Json
+@using System.Text.Json.Serialization
+@inject IHttpClientFactory ClientFactory
+
+<h3>Gardens</h3>
+
+@if (getUserError)
+{
+    <p>Unable to get users from Smarden_API. Please try again later.</p>
+}
+else
+{
+    <ul>
+        @foreach (var user in users)
+        {
+            <li>@user.Name</li>
+        }
+    </ul>
+}
+
+@code {
+    private IEnumerable<SmardenUsers> users = Array.Empty<SmardenUsers>();
+    private bool getUserError;
+    private bool shouldRender;
+
+    protected override bool ShouldRender() => shouldRender;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var request = new HttpRequestMessage(HttpMethod.Get,
+        "https://localhost:7137/api/User");
+
+
+        var client = ClientFactory.CreateClient();
+
+        var response = await client.SendAsync(request);
+
+        if (response.IsSuccessStatusCode)
+        {
+            using var responseStream = await response.Content.ReadAsStreamAsync();
+            users = await JsonSerializer.DeserializeAsync
+            <IEnumerable<SmardenUsers>>(responseStream);
+        }
+        else
+        {
+            getUserError = true;
+        }
+
+        shouldRender = true;
+    }
+
+    public class SmardenUsers
+    {
+        [JsonPropertyName("userName")]
+        public string Name { get; set; }
+    }
+}
