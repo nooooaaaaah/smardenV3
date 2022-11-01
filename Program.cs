@@ -1,14 +1,16 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using SmardenV3.Data;
+using Syncfusion.Blazor;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
-builder.Services.AddSingleton<WeatherForecastService>();
 builder.Services.AddHttpClient();
+builder.Services.AddSyncfusionBlazor();
 
 var app = builder.Build();
 
