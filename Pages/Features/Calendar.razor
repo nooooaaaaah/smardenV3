@@ -1,8 +1,10 @@
 @page "/calendar"
 @using System.Text.Json
 @using System.Text.Json.Serialization
-@using Syncfusion.Blazor
+@using Syncfusion.Blazor.Calendars
 @using Syncfusion.Blazor.Schedule
+@using Syncfusion.Blazor.Inputs
+
 
 @inject IHttpClientFactory ClientFactoryz
 
@@ -12,7 +14,8 @@
 
 
 @* help: https://blazor.syncfusion.com/documentation/scheduler/getting-started/ *@
-<SfSchedule TValue=AppointmentData>
+<SfSchedule TValue="AppointmentData">
+    <ScheduleEventSettings DataSource="@appointments"></ScheduleEventSettings>
     <ScheduleViews>
         <ScheduleView Option="View.Day"></ScheduleView>
         <ScheduleView Option="View.Week"></ScheduleView>
@@ -22,14 +25,7 @@
     </ScheduleViews>
 </SfSchedule>
 @code {
-    public List<AppointmentData> appointments = new List<AppointmentData>
-{
-new AppointmentData { Id = 1, Subject = "Water", Location = "Home", StartTime = new DateTime(2022, 7, 17, 10, 30, 45),
-EndTime = new DateTime(2022, 7, 17, 11, 30, 45), Description = "water plants", IsAllDay = false},
-new AppointmentData { Id = 1, Subject = "Feed", Location = "Home", StartTime = new DateTime(2022, 7, 19, 10, 30, 45),
-EndTime = new DateTime(2022, 7, 19, 11, 30, 45), Description = "feed plants", IsAllDay = false}
-};
-    public class AppointmentData
+        public class AppointmentData
     {
         public int Id { get; set; }
         public string Subject { get; set; }
@@ -42,5 +38,14 @@ EndTime = new DateTime(2022, 7, 19, 11, 30, 45), Description = "feed plants", Is
         public string RecurrenceException { get; set; }
         public Nullable<int> RecurrenceID { get; set; }
     }
+
+    public List<AppointmentData> appointments = new List<AppointmentData>
+{
+new AppointmentData { Id = 1, Subject = "Water", Location = "Home", StartTime = new DateTime(2022, 7, 17, 10, 30, 45),
+EndTime = new DateTime(2022, 7, 17, 11, 30, 45), Description = "water plants", IsAllDay = false},
+new AppointmentData { Id = 2, Subject = "Feed", Location = "Home", StartTime = new DateTime(2022, 7, 19, 10, 30, 45),
+EndTime = new DateTime(2022, 7, 19, 11, 30, 45), Description = "feed plants", IsAllDay = false}
+};
+
 
 }
