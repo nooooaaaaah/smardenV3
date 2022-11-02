@@ -1,13 +1,10 @@
 @page "/tasks"
-@using Syncfusion.Blazor
 @using Syncfusion.Blazor.Kanban
-
 
 <SfKanban TValue="TasksModel" KeyField="Status" DataSource="Tasks">
     <KanbanColumns>
         <KanbanColumn HeaderText="Backlog" KeyField="@(new List<string>() {"Open"})"></KanbanColumn>
         <KanbanColumn HeaderText="In Progress" KeyField="@(new List<string>() {"InProgress"})"></KanbanColumn>
-        <KanbanColumn HeaderText="Testing" KeyField="@(new List<string>() {"Testing"})"></KanbanColumn>
         <KanbanColumn HeaderText="Done" KeyField="@(new List<string>() {"Close"})"></KanbanColumn>
     </KanbanColumns>
     <KanbanCardSettings HeaderField="Id" ContentField="Summary"></KanbanCardSettings>
