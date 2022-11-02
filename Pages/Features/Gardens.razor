@@ -4,11 +4,32 @@
 @using System.Text.Json.Serialization
 @inject IHttpClientFactory ClientFactory
 
-<h3>Gardens</h3>
+
+<h3 class="text-info">Gardens</h3><br>
+
+<div class="row">
+    <div class="input-group col">
+        <div class="input-group-prepend">
+            <div class="input-group-text">Garden Search</div>
+        </div>
+        <input type="text" class="form-control" placeholder="Input Garden" aria-label="Input Garden">
+    </div>
+    <div class="col-2">
+        <button type="button" class="btn btn-outline-info" onclick="createGarden">New Garden</button>
+    </div>
+</div>
 
 @if (getgardenError)
 {
-    <p>Unable to get gardens from Smarden_API. Please try again later.</p>
+    <p>Unable to get gardens from Smarden_API.
+        <br> Please try again later or
+        <br>Keep refreshing it work eventually.
+        @for (int i = 0; i < 1000; i++)
+        {
+            <sub>right? </sub>
+        }
+    </p>
+
 }
 else
 {
