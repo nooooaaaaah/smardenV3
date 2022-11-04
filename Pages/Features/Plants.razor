@@ -1,0 +1,87 @@
+@page "/plants"
+
+
+@using System.Text.Json
+@using System.Text.Json.Serialization
+@using Syncfusion.Blazor.Inputs
+@using Syncfusion.Blazor.Grids
+@inject IHttpClientFactory ClientFactory
+
+
+@{
+    var InitSearch = (new string[] { "PlantID", "Name" });
+    var Tool = (new List<string>() { "Search" });
+}
+
+
+<h3 class="text-info">Plants</h3><br>
+
+@if (getplantError)
+{
+    <APIerror />
+}
+else
+{
+
+    <SfGrid DataSource="@plants" AllowPaging="true" AllowSorting="true"
+    Toolbar="@(new List<string>() { "Add", "Edit", "Delete", "Cancel", "Update", "Search" })">
+        <GridSearchSettings Fields=@InitSearch Operator=Syncfusion.Blazor.Operator.Contains IgnoreCase="true">
+        </GridSearchSettings>
+        <GridEditSettings AllowEditing="true" AllowAdding="true" AllowDeleting="true"></GridEditSettings>
+    </SfGrid>
+}
+
+
+@code {
+    public IEditorSettings CustomerEditParams = new StringEditCellParams
+    {
+        Params = new TextBoxModel() { EnableRtl = true, ShowClearButton = false, Multiline = true }
+    };
+    private IEnumerable<PlantData> plants = Array.Empty<PlantData>();
+    private bool getplantError;
+    private bool shouldRender;
+    protected override bool ShouldRender() => shouldRender;
+
+
+    protected override async Task OnInitializedAsync()
+    {
+
+        var request = new HttpRequestMessage(HttpMethod.Get,
+        "https://localhost:7137/api/plant");
+
+        var client = ClientFactory.CreateClient();
+
+        HttpResponseMessage response = new HttpResponseMessage();
+        try
+        {
+            response = await client.SendAsync(request);
+        }
+        catch (Exception e)
+        {
+            getplantError = true;
+        }
+        finally
+        {
+            if (!getplantError)
+            {
+                using var responseStream = await response.Content.ReadAsStreamAsync();
+                plants = await JsonSerializer.DeserializeAsync
+                <IEnumerable<PlantData>>(responseStream);
+            }
+
+            shouldRender = true;
+        }
+    }
+
+    public class PlantData
+    {
+        [JsonPropertyName("plantId")]
+        public int PlantID { get; set; }
+        [JsonPropertyName("plantName")]
+        public string Name { get; set; }
+        [JsonPropertyName("plantVariety")]
+        public string Variety { get; set; }
+        [JsonPropertyName("gardenId")]
+        public int GardenID { get; set; }
+    }
+}

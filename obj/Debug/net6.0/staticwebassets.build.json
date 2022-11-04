@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "URoTt9YANdcAHuPIOR0Mp25D5NymGhq4hG8j3U4UUJ4=",
+  "Hash": "wUPL7qKqylo6ob5NF9EyIQl8NZp5pwYlsJl7Re+9NPQ=",
   "Source": "SmardenV3",
   "BasePath": "_content/SmardenV3",
   "Mode": "Default",
@@ -389,6 +389,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\Noah\\.nuget\\packages\\syncfusion.blazor.dropdowns\\20.3.0.52\\staticwebassets\\scripts\\sortable.min.js"
+    },
+    {
+      "Identity": "C:\\Users\\Noah\\.nuget\\packages\\syncfusion.blazor.grid\\20.3.0.52\\staticwebassets\\scripts\\sf-grid.min.js",
+      "SourceId": "Syncfusion.Blazor.Grid",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\Noah\\.nuget\\packages\\syncfusion.blazor.grid\\20.3.0.52\\staticwebassets\\",
+      "BasePath": "_content/Syncfusion.Blazor.Grid",
+      "RelativePath": "scripts/sf-grid.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Noah\\.nuget\\packages\\syncfusion.blazor.grid\\20.3.0.52\\staticwebassets\\scripts\\sf-grid.min.js"
     },
     {
       "Identity": "C:\\Users\\Noah\\.nuget\\packages\\syncfusion.blazor.inputs\\20.3.0.52\\staticwebassets\\scripts\\sf-colorpicker.min.js",

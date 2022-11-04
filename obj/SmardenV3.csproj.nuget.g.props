@@ -12,6 +12,16 @@
   <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <SourceRoot Include="C:\Users\Noah\.nuget\packages\" />
   </ItemGroup>
+  <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Content Include="$(NuGetPackageRoot)prettyblazor\1.2.0\contentFiles\any\net5.0\License.txt" Condition="Exists('$(NuGetPackageRoot)prettyblazor\1.2.0\contentFiles\any\net5.0\License.txt')">
+      <NuGetPackageId>PrettyBlazor</NuGetPackageId>
+      <NuGetPackageVersion>1.2.0</NuGetPackageVersion>
+      <NuGetItemType>Content</NuGetItemType>
+      <Pack>false</Pack>
+      <Private>False</Private>
+      <Link>License.txt</Link>
+    </Content>
+  </ItemGroup>
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <Import Project="$(NuGetPackageRoot)syncfusion.blazor.themes\20.3.0.52\buildTransitive\Syncfusion.Blazor.Themes.props" Condition="Exists('$(NuGetPackageRoot)syncfusion.blazor.themes\20.3.0.52\buildTransitive\Syncfusion.Blazor.Themes.props')" />
     <Import Project="$(NuGetPackageRoot)syncfusion.blazor.core\20.3.0.52\buildTransitive\Syncfusion.Blazor.Core.props" Condition="Exists('$(NuGetPackageRoot)syncfusion.blazor.core\20.3.0.52\buildTransitive\Syncfusion.Blazor.Core.props')" />
@@ -27,5 +37,6 @@
     <Import Project="$(NuGetPackageRoot)syncfusion.blazor.calendars\20.3.0.52\buildTransitive\Syncfusion.Blazor.Calendars.props" Condition="Exists('$(NuGetPackageRoot)syncfusion.blazor.calendars\20.3.0.52\buildTransitive\Syncfusion.Blazor.Calendars.props')" />
     <Import Project="$(NuGetPackageRoot)syncfusion.blazor.schedule\20.3.0.52\buildTransitive\Syncfusion.Blazor.Schedule.props" Condition="Exists('$(NuGetPackageRoot)syncfusion.blazor.schedule\20.3.0.52\buildTransitive\Syncfusion.Blazor.Schedule.props')" />
     <Import Project="$(NuGetPackageRoot)syncfusion.blazor.kanban\20.3.0.52\buildTransitive\Syncfusion.Blazor.Kanban.props" Condition="Exists('$(NuGetPackageRoot)syncfusion.blazor.kanban\20.3.0.52\buildTransitive\Syncfusion.Blazor.Kanban.props')" />
+    <Import Project="$(NuGetPackageRoot)syncfusion.blazor.grid\20.3.0.52\buildTransitive\Syncfusion.Blazor.Grid.props" Condition="Exists('$(NuGetPackageRoot)syncfusion.blazor.grid\20.3.0.52\buildTransitive\Syncfusion.Blazor.Grid.props')" />
   </ImportGroup>
 </Project>

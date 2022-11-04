@@ -127,11 +127,13 @@ C:\Users\Noah\Documents\stall\CIS410_Project\smardenV3\bin\Debug\net6.0\Microsof
 C:\Users\Noah\Documents\stall\CIS410_Project\smardenV3\bin\Debug\net6.0\Microsoft.AspNetCore.Metadata.dll
 C:\Users\Noah\Documents\stall\CIS410_Project\smardenV3\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Users\Noah\Documents\stall\CIS410_Project\smardenV3\bin\Debug\net6.0\Microsoft.JSInterop.dll
+C:\Users\Noah\Documents\stall\CIS410_Project\smardenV3\bin\Debug\net6.0\PrettyBlazor.dll
 C:\Users\Noah\Documents\stall\CIS410_Project\smardenV3\bin\Debug\net6.0\Syncfusion.Blazor.Buttons.dll
 C:\Users\Noah\Documents\stall\CIS410_Project\smardenV3\bin\Debug\net6.0\Syncfusion.Blazor.Calendars.dll
 C:\Users\Noah\Documents\stall\CIS410_Project\smardenV3\bin\Debug\net6.0\Syncfusion.Blazor.Core.dll
 C:\Users\Noah\Documents\stall\CIS410_Project\smardenV3\bin\Debug\net6.0\Syncfusion.Blazor.Data.dll
 C:\Users\Noah\Documents\stall\CIS410_Project\smardenV3\bin\Debug\net6.0\Syncfusion.Blazor.DropDowns.dll
+C:\Users\Noah\Documents\stall\CIS410_Project\smardenV3\bin\Debug\net6.0\Syncfusion.Blazor.Grids.dll
 C:\Users\Noah\Documents\stall\CIS410_Project\smardenV3\bin\Debug\net6.0\Syncfusion.Blazor.Inputs.dll
 C:\Users\Noah\Documents\stall\CIS410_Project\smardenV3\bin\Debug\net6.0\Syncfusion.Blazor.Kanban.dll
 C:\Users\Noah\Documents\stall\CIS410_Project\smardenV3\bin\Debug\net6.0\Syncfusion.Blazor.Lists.dll
@@ -143,6 +145,7 @@ C:\Users\Noah\Documents\stall\CIS410_Project\smardenV3\bin\Debug\net6.0\Syncfusi
 C:\Users\Noah\Documents\stall\CIS410_Project\smardenV3\bin\Debug\net6.0\Syncfusion.Blazor.Themes.dll
 C:\Users\Noah\Documents\stall\CIS410_Project\smardenV3\bin\Debug\net6.0\Syncfusion.ExcelExport.Net.dll
 C:\Users\Noah\Documents\stall\CIS410_Project\smardenV3\bin\Debug\net6.0\Syncfusion.Licensing.dll
+C:\Users\Noah\Documents\stall\CIS410_Project\smardenV3\bin\Debug\net6.0\Syncfusion.PdfExport.Net.dll
 C:\Users\Noah\Documents\stall\CIS410_Project\smardenV3\bin\Debug\net6.0\System.IO.Pipelines.dll
 C:\Users\Noah\Documents\stall\CIS410_Project\smardenV3\obj\Debug\net6.0\staticwebassets.build.json
 C:\Users\Noah\Documents\stall\CIS410_Project\smardenV3\obj\Debug\net6.0\staticwebassets.development.json

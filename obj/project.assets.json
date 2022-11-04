@@ -226,6 +226,25 @@
           "build/netstandard2.0/_._": {}
         }
       },
+      "PrettyBlazor/1.2.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components.Web": "5.0.4"
+        },
+        "compile": {
+          "lib/net5.0/PrettyBlazor.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/PrettyBlazor.dll": {}
+        },
+        "contentFiles": {
+          "contentFiles/any/net5.0/License.txt": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          }
+        }
+      },
       "Syncfusion.Blazor.Buttons/20.3.0.52": {
         "type": "package",
         "dependencies": {
@@ -344,6 +363,38 @@
         },
         "buildMultiTargeting": {
           "buildMultiTargeting/Syncfusion.Blazor.DropDowns.props": {}
+        }
+      },
+      "Syncfusion.Blazor.Grid/20.3.0.52": {
+        "type": "package",
+        "dependencies": {
+          "Syncfusion.Blazor.Buttons": "20.3.0.52",
+          "Syncfusion.Blazor.Calendars": "20.3.0.52",
+          "Syncfusion.Blazor.Core": "20.3.0.52",
+          "Syncfusion.Blazor.Data": "20.3.0.52",
+          "Syncfusion.Blazor.DropDowns": "20.3.0.52",
+          "Syncfusion.Blazor.Inputs": "20.3.0.52",
+          "Syncfusion.Blazor.Navigations": "20.3.0.52",
+          "Syncfusion.Blazor.Popups": "20.3.0.52",
+          "Syncfusion.Blazor.Spinner": "20.3.0.52",
+          "Syncfusion.ExcelExport.Net.Core": "20.3.0.52",
+          "Syncfusion.PdfExport.Net.Core": "20.3.0.52"
+        },
+        "compile": {
+          "lib/net6.0/Syncfusion.Blazor.Grids.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Syncfusion.Blazor.Grids.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/Syncfusion.Blazor.Grid.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/Syncfusion.Blazor.Grid.props": {}
         }
       },
       "Syncfusion.Blazor.Inputs/20.3.0.52": {
@@ -597,6 +648,22 @@
         },
         "runtime": {
           "lib/net6.0/Syncfusion.Licensing.dll": {}
+        }
+      },
+      "Syncfusion.PdfExport.Net.Core/20.3.0.52": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "2.0.0"
+        },
+        "compile": {
+          "lib/net5.0/Syncfusion.PdfExport.Net.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net5.0/Syncfusion.PdfExport.Net.dll": {
+            "related": ".xml"
+          }
         }
       },
       "System.IO.Pipelines/6.0.3": {
@@ -1155,6 +1222,22 @@
         "netstandard.library.nuspec"
       ]
     },
+    "PrettyBlazor/1.2.0": {
+      "sha512": "qOMkNTsTQYDkcPAouYhKBpaWDKO3l1aWgmkME+M96ApL8jfxUR4NHwFH0zZEuUnBztUj9D1TO41t+lcVzTDqMQ==",
+      "type": "package",
+      "path": "prettyblazor/1.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "License.txt",
+        "PrettyBlazor.png",
+        "content/License.txt",
+        "contentFiles/any/net5.0/License.txt",
+        "lib/net5.0/PrettyBlazor.dll",
+        "prettyblazor.1.2.0.nupkg.sha512",
+        "prettyblazor.nuspec"
+      ]
+    },
     "Syncfusion.Blazor.Buttons/20.3.0.52": {
       "sha512": "Zfw+KRiIOSkGlgDbfLFbjKWCy2+VS2ohoucwJ8H1db/cBgFWhMYGEnHmRxxg5SFBSrfo+xo2pFjLHZxXJeyVSQ==",
       "type": "package",
@@ -1283,6 +1366,29 @@
         "staticwebassets/scripts/sortable.min.js",
         "syncfusion.blazor.dropdowns.20.3.0.52.nupkg.sha512",
         "syncfusion.blazor.dropdowns.nuspec",
+        "syncfusion_logo.png"
+      ]
+    },
+    "Syncfusion.Blazor.Grid/20.3.0.52": {
+      "sha512": "5WUaD5qoMCX0x4oR3tEU4d7YxMrAMYL0jZJ0h+c3GRT/uQCJABe5V/zXsY1nk8d90b53LaufZIEYPmfEuJMUJQ==",
+      "type": "package",
+      "path": "syncfusion.blazor.grid/20.3.0.52",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "README.md",
+        "build/Microsoft.AspNetCore.StaticWebAssets.props",
+        "build/Syncfusion.Blazor.Grid.props",
+        "buildMultiTargeting/Syncfusion.Blazor.Grid.props",
+        "buildTransitive/Syncfusion.Blazor.Grid.props",
+        "lib/net6.0/Syncfusion.Blazor.Grids.dll",
+        "lib/net6.0/Syncfusion.Blazor.Grids.xml",
+        "lib/netstandard2.1/Syncfusion.Blazor.Grids.dll",
+        "lib/netstandard2.1/Syncfusion.Blazor.Grids.xml",
+        "staticwebassets/scripts/sf-grid.min.js",
+        "syncfusion.blazor.grid.20.3.0.52.nupkg.sha512",
+        "syncfusion.blazor.grid.nuspec",
         "syncfusion_logo.png"
       ]
     },
@@ -1573,6 +1679,23 @@
         "syncfusion_logo.png"
       ]
     },
+    "Syncfusion.PdfExport.Net.Core/20.3.0.52": {
+      "sha512": "PWeVL8ki4UugkWvKu9ki+pHcrMef30gst8Q26pCx+bfISPck9pJa+Phu/hikdUtME8rcZvrPTpcDh5qKHSdUFg==",
+      "type": "package",
+      "path": "syncfusion.pdfexport.net.core/20.3.0.52",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "lib/net5.0/Syncfusion.PdfExport.Net.dll",
+        "lib/net5.0/Syncfusion.PdfExport.Net.xml",
+        "lib/netstandard2.0/Syncfusion.PdfExport.Net.dll",
+        "lib/netstandard2.0/Syncfusion.PdfExport.Net.xml",
+        "syncfusion.pdfexport.net.core.20.3.0.52.nupkg.sha512",
+        "syncfusion.pdfexport.net.core.nuspec",
+        "syncfusion_logo.png"
+      ]
+    },
     "System.IO.Pipelines/6.0.3": {
       "sha512": "ryTgF+iFkpGZY1vRQhfCzX0xTdlV3pyaTTqRu2ETbEv+HlV7O6y7hyQURnghNIXvctl5DuZ//Dpks6HdL/Txgw==",
       "type": "package",
@@ -1707,6 +1830,9 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "PrettyBlazor >= 1.2.0",
+      "Syncfusion.Blazor.Grid >= 20.3.0.52",
+      "Syncfusion.Blazor.Inputs >= 20.3.0.52",
       "Syncfusion.Blazor.Kanban >= 20.3.0.52",
       "Syncfusion.Blazor.Themes >= 20.3.0.52",
       "Syncfusion.Blazor.schedule >= 20.3.0.52"
@@ -1749,6 +1875,18 @@
       "net6.0": {
         "targetAlias": "net6.0",
         "dependencies": {
+          "PrettyBlazor": {
+            "target": "Package",
+            "version": "[1.2.0, )"
+          },
+          "Syncfusion.Blazor.Grid": {
+            "target": "Package",
+            "version": "[20.3.0.52, )"
+          },
+          "Syncfusion.Blazor.Inputs": {
+            "target": "Package",
+            "version": "[20.3.0.52, )"
+          },
           "Syncfusion.Blazor.Kanban": {
             "target": "Package",
             "version": "[20.3.0.52, )"

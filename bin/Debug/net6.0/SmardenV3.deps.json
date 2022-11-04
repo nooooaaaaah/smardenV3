@@ -8,6 +8,9 @@
     ".NETCoreApp,Version=v6.0": {
       "SmardenV3/1.0.0": {
         "dependencies": {
+          "PrettyBlazor": "1.2.0",
+          "Syncfusion.Blazor.Grid": "20.3.0.52",
+          "Syncfusion.Blazor.Inputs": "20.3.0.52",
           "Syncfusion.Blazor.Kanban": "20.3.0.52",
           "Syncfusion.Blazor.Themes": "20.3.0.52",
           "Syncfusion.Blazor.Schedule": "20.3.0.52"
@@ -117,6 +120,17 @@
           "Microsoft.NETCore.Platforms": "1.1.0"
         }
       },
+      "PrettyBlazor/1.2.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Components.Web": "6.0.5"
+        },
+        "runtime": {
+          "lib/net5.0/PrettyBlazor.dll": {
+            "assemblyVersion": "1.2.0.0",
+            "fileVersion": "1.2.0.0"
+          }
+        }
+      },
       "Syncfusion.Blazor.Buttons/20.3.0.52": {
         "dependencies": {
           "Syncfusion.Blazor.Core": "20.3.0.52"
@@ -177,6 +191,27 @@
         },
         "runtime": {
           "lib/net6.0/Syncfusion.Blazor.DropDowns.dll": {
+            "assemblyVersion": "20.3.0.52",
+            "fileVersion": "20.3.0.52"
+          }
+        }
+      },
+      "Syncfusion.Blazor.Grid/20.3.0.52": {
+        "dependencies": {
+          "Syncfusion.Blazor.Buttons": "20.3.0.52",
+          "Syncfusion.Blazor.Calendars": "20.3.0.52",
+          "Syncfusion.Blazor.Core": "20.3.0.52",
+          "Syncfusion.Blazor.Data": "20.3.0.52",
+          "Syncfusion.Blazor.DropDowns": "20.3.0.52",
+          "Syncfusion.Blazor.Inputs": "20.3.0.52",
+          "Syncfusion.Blazor.Navigations": "20.3.0.52",
+          "Syncfusion.Blazor.Popups": "20.3.0.52",
+          "Syncfusion.Blazor.Spinner": "20.3.0.52",
+          "Syncfusion.ExcelExport.Net.Core": "20.3.0.52",
+          "Syncfusion.PdfExport.Net.Core": "20.3.0.52"
+        },
+        "runtime": {
+          "lib/net6.0/Syncfusion.Blazor.Grids.dll": {
             "assemblyVersion": "20.3.0.52",
             "fileVersion": "20.3.0.52"
           }
@@ -330,6 +365,17 @@
           }
         }
       },
+      "Syncfusion.PdfExport.Net.Core/20.3.0.52": {
+        "dependencies": {
+          "NETStandard.Library": "2.0.0"
+        },
+        "runtime": {
+          "lib/net5.0/Syncfusion.PdfExport.Net.dll": {
+            "assemblyVersion": "20.3.0.52",
+            "fileVersion": "20.3.0.52"
+          }
+        }
+      },
       "System.IO.Pipelines/6.0.3": {
         "runtime": {
           "lib/net6.0/System.IO.Pipelines.dll": {
@@ -463,6 +509,13 @@
       "path": "netstandard.library/2.0.0",
       "hashPath": "netstandard.library.2.0.0.nupkg.sha512"
     },
+    "PrettyBlazor/1.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-qOMkNTsTQYDkcPAouYhKBpaWDKO3l1aWgmkME+M96ApL8jfxUR4NHwFH0zZEuUnBztUj9D1TO41t+lcVzTDqMQ==",
+      "path": "prettyblazor/1.2.0",
+      "hashPath": "prettyblazor.1.2.0.nupkg.sha512"
+    },
     "Syncfusion.Blazor.Buttons/20.3.0.52": {
       "type": "package",
       "serviceable": true,
@@ -497,6 +550,13 @@
       "sha512": "sha512-fkUixTX8np/NrKCVpl0hUmkry8MbXwNjVHvWjqLl8gmOLYV5mJzjre5d+Ho4HhELFXf4M6+afGNNdEraVBLQyA==",
       "path": "syncfusion.blazor.dropdowns/20.3.0.52",
       "hashPath": "syncfusion.blazor.dropdowns.20.3.0.52.nupkg.sha512"
+    },
+    "Syncfusion.Blazor.Grid/20.3.0.52": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-5WUaD5qoMCX0x4oR3tEU4d7YxMrAMYL0jZJ0h+c3GRT/uQCJABe5V/zXsY1nk8d90b53LaufZIEYPmfEuJMUJQ==",
+      "path": "syncfusion.blazor.grid/20.3.0.52",
+      "hashPath": "syncfusion.blazor.grid.20.3.0.52.nupkg.sha512"
     },
     "Syncfusion.Blazor.Inputs/20.3.0.52": {
       "type": "package",
@@ -574,6 +634,13 @@
       "sha512": "sha512-c1CmwlcbQdAlgypw84H9MqCdaXNEs4CiD7VBRWtJ9+xMkctcgcztUHaMlvFwnJX28kIuPt1eDvmXzTGblJJeCw==",
       "path": "syncfusion.licensing/20.3.0.52",
       "hashPath": "syncfusion.licensing.20.3.0.52.nupkg.sha512"
+    },
+    "Syncfusion.PdfExport.Net.Core/20.3.0.52": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-PWeVL8ki4UugkWvKu9ki+pHcrMef30gst8Q26pCx+bfISPck9pJa+Phu/hikdUtME8rcZvrPTpcDh5qKHSdUFg==",
+      "path": "syncfusion.pdfexport.net.core/20.3.0.52",
+      "hashPath": "syncfusion.pdfexport.net.core.20.3.0.52.nupkg.sha512"
     },
     "System.IO.Pipelines/6.0.3": {
       "type": "package",
