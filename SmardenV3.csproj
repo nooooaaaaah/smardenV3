@@ -2,8 +2,17 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <Nullable>enable</Nullable>
+  
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="PrettyBlazor" Version="1.2.0" />
+    <PackageReference Include="Syncfusion.Blazor.Grid" Version="20.3.0.52" />
+    <PackageReference Include="Syncfusion.Blazor.Inputs" Version="20.3.0.52" />
+    <PackageReference Include="Syncfusion.Blazor.Kanban" Version="20.3.0.52" />
+    <PackageReference Include="Syncfusion.Blazor.schedule" Version="20.3.0.52" />
+    <PackageReference Include="Syncfusion.Blazor.Themes" Version="20.3.0.52" />
+  </ItemGroup>
 
 </Project>
