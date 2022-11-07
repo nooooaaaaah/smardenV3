@@ -11,27 +11,27 @@
         @bind="Username">
     <input type="password" name="password" id="password-field" class="login-form-field" placeholder="Password"
         @bind="Password">
-    <input type="submit" value="Login" id="login-form-submit" @onclick="CheckUserExists">
+    <button class="btn-info" id="login-form-submit" @onclick="CheckUserExists">Login</button>
 </form>
 
 <ul>
     <li><code>Username</code>: @Username</li>
     <li><code>Password</code>: @Password</li>
 </ul>
+@if (!userExists)
+{
+    <p>userexists</p>
+}
+
 
 @code {
     private string Username { get; set; }
     private string Password { get; set; }
-
-    private void CheckUserExists()
-    {
-        Console.WriteLine(Username);
-    }
     private IEnumerable<UserData> users = Array.Empty<UserData>();
+    private bool userExists;
     private bool getuserError;
     private bool shouldRender;
     protected override bool ShouldRender() => shouldRender;
-
 
     protected override async Task OnInitializedAsync()
     {
@@ -63,6 +63,17 @@
         }
     }
 
+    private void CheckUserExists()
+    {
+        foreach (var user in users)
+        {
+            if (user.Name == Username)
+            {
+                userExists = true;
+            }
+        };
+    }
+
     public class UserData
     {
         [JsonPropertyName("userId")]
@@ -71,9 +82,9 @@
         public string Name { get; set; }
         [JsonPropertyName("userPassword")]
         public string Password { get; set; }
-        [JsonPropertyName("CustomerName")]
-        public int CustomerName { get; set; }
-        [JsonPropertyName("CustomerAddress")]
-        public int CustomerAddress { get; set; }
+        [JsonPropertyName("customerName")]
+        public string CustomerName { get; set; }
+        [JsonPropertyName("customerAddress")]
+        public string CustomerAddress { get; set; }
     }
 }
