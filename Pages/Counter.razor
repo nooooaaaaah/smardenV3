@@ -4,15 +4,27 @@
 
 <h1>Counter</h1>
 
-<p role="status">Current count: @currentCount</p>
-
-<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+@if (currentCount.HasValue)
+{
+    <p>Current count: <strong>@currentCount</strong></p>
+    <button @onclick="IncrementCount">Increment</button>
+}
+else
+{
+    <p>Loading...</p>
+}
 
 @code {
-    private int currentCount = 0;
+    private int? currentCount;
 
-    private void IncrementCount()
-    {
-        currentCount++;
-    }
+private async Task IncrementCount()
+{
+    currentCount++;
+    await ProtectedSessionStore.SetAsync("count", currentCount);
+}
+protected override async Task OnInitializedAsync()
+{
+    var result = await ProtectedSessionStore.GetAsync<int>("count");
+    currentCount = result.Success ? result.Value : 0;
+}
 }
