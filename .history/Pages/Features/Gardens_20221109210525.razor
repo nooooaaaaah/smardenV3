@@ -1,0 +1,73 @@
+﻿@page "/gardens"
+@using System.Text.Json
+@using System.Text.Json.Serialization
+@using Syncfusion.Blazor.Inputs
+@using Syncfusion.Blazor.Grids
+@using SmardenV3.Data
+@inject IGardenService GardenService
+
+
+@{
+    var InitSearch = (new string[] { "GardenID", "Name" });
+    var Tool = (new List<string>() { "Search" });
+}
+
+
+<h3 class="text-info">Gardens</h3><br>
+
+<SfGrid DataSource="@gardens" AllowPaging="true" AllowSorting="true"
+    Toolbar="@(new List<string>() { "Add", "Edit", "Delete", "Cancel", "Update", "Search" })">
+    <GridSearchSettings Fields=@InitSearch Operator=Syncfusion.Blazor.Operator.Contains IgnoreCase="true">
+    </GridSearchSettings>
+    <GridEditSettings AllowEditing="true" AllowAdding="true" AllowDeleting="true"></GridEditSettings>
+</SfGrid>
+
+
+@code {
+    private IEnumerable<GardenData> gardens = Array.Empty<GardenData>();
+    protected override async Task OnInitializedAsync()
+    {
+        gardens = await GardenService.GetGardens();
+    }
+
+    @* public IEditorSettings CustomerEditParams = new StringEditCellParams
+        {
+        Params = new TextBoxModel() { EnableRtl = true, ShowClearButton = false, Multiline = true }
+        };
+        private IEnumerable<GardenData> gardens = Array.Empty<GardenData>();
+        private bool getgardenError;
+        private bool shouldRender;
+        protected override bool ShouldRender() => shouldRender;
+
+
+        protected override async Task OnInitializedAsync()
+        {
+
+        var request = new HttpRequestMessage(HttpMethod.Get,
+        "https://localhost:7137/api/garden");
+
+        var client = ClientFactory.CreateClient();
+
+        HttpResponseMessage response = new HttpResponseMessage();
+        try
+        {
+        response = await client.SendAsync(request);
+        }
+        catch (Exception e)
+        {
+        getgardenError = true;
+        }
+        finally
+        {
+        if (!getgardenError)
+        {
+        using var responseStream = await response.Content.ReadAsStreamAsync();
+        gardens = await JsonSerializer.DeserializeAsync
+        <IEnumerable<GardenData>>(responseStream);
+        }
+
+        shouldRender = true;
+        }
+        } *@
+
+}

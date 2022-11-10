@@ -1,0 +1,36 @@
+@page "/calendar"
+@using System.Text.Json
+@using System.Text.Json.Serialization
+@using Syncfusion.Blazor.Calendars
+@using Syncfusion.Blazor.Schedule
+@using Syncfusion.Blazor.Inputs
+@using SmardenV3.Data
+
+@inject IEventService EventService
+
+
+<PageTitle>Calendar</PageTitle>
+
+
+
+@* help: https://blazor.syncfusion.com/documentation/scheduler/getting-started/ *@
+<div>
+    <SfSchedule TValue="EventData">
+        <ScheduleEventSettings DataSource="@events"></ScheduleEventSettings>
+        <ScheduleViews>
+            <ScheduleView Option="View.Day"></ScheduleView>
+            <ScheduleView Option="View.Week"></ScheduleView>
+            <ScheduleView Option="View.WorkWeek"></ScheduleView>
+            <ScheduleView Option="View.Month"></ScheduleView>
+            <ScheduleView Option="View.Agenda"></ScheduleView>
+        </ScheduleViews>
+    </SfSchedule>
+</div>
+@code {
+    private IEnumerable<EventData> events = Array.Empty<EventData>();
+    protected override async Task OnInitializedAsync()
+    {
+        events = await EventService.GetEvents();
+    }
+
+}
