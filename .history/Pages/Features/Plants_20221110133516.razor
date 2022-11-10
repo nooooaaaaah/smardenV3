@@ -1,6 +1,7 @@
 @page "/plants"
 
-@using System.Dynamic
+@using System.Text.Json
+@using Syncfusion.Blazor.Inputs
 @using Syncfusion.Blazor.Grids
 @using SmardenV3.Data
 
@@ -16,24 +17,18 @@
 <h3 class="text-info">Plants</h3><br>
 
 
-<SfGrid @ref="Grid" DataSource="@plants" EnablePersistence="true" AllowPaging="true" AllowSorting="true"
+<SfGrid ID="Grid" DataSource="@plants" EnablePersistence="true" AllowPaging="true" AllowSorting="true"
     Toolbar="@(new List<string>() { "Add", "Edit", "Delete", "Cancel", "Update", "Search" })">
-    <GridPageSettings PageSize="5"></GridPageSettings>
     <GridSearchSettings Fields=@InitSearch Operator=Syncfusion.Blazor.Operator.Contains IgnoreCase="true">
     </GridSearchSettings>
     <GridEditSettings AllowEditing="true" AllowAdding="true" AllowDeleting="true"></GridEditSettings>
-    <GridColumns>
-        <GridColumn Field="@nameof(PlantData.PlantID)" HeaderText="Plant ID"></GridColumn>
-        <GridColumn Field="@nameof(PlantData.Name)" HeaderText="Plant Name"></GridColumn>
-        <GridColumn Field="@nameof(PlantData.Variety)" HeaderText="Variety"></GridColumn>
-        <GridColumn Field="@nameof(PlantData.GardenID)" HeaderText="Garden ID"></GridColumn>
-    </GridColumns>
 </SfGrid>
 
 
 
 @code {
-    SfGrid<PlantData> Grid;
+        SfGrid<PlantData> Grid;
+
     private IEnumerable<PlantData> plants = Array.Empty<PlantData>();
     protected override async Task OnInitializedAsync()
     {

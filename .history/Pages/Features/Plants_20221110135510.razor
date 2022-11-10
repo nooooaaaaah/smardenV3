@@ -18,7 +18,6 @@
 
 <SfGrid @ref="Grid" DataSource="@plants" EnablePersistence="true" AllowPaging="true" AllowSorting="true"
     Toolbar="@(new List<string>() { "Add", "Edit", "Delete", "Cancel", "Update", "Search" })">
-    <GridPageSettings PageSize="5"></GridPageSettings>
     <GridSearchSettings Fields=@InitSearch Operator=Syncfusion.Blazor.Operator.Contains IgnoreCase="true">
     </GridSearchSettings>
     <GridEditSettings AllowEditing="true" AllowAdding="true" AllowDeleting="true"></GridEditSettings>

@@ -1,7 +1,9 @@
 @page "/plants"
 
-@using System.Dynamic
+@using System.Text.Json
+@using Syncfusion.Blazor.Inputs
 @using Syncfusion.Blazor.Grids
+@using Syncfusion.Blazor.Buttons
 @using SmardenV3.Data
 
 @inject IPlantService PlantService
@@ -15,34 +17,26 @@
 
 <h3 class="text-info">Plants</h3><br>
 
+<SfButton OnClick="@(async () => _state = await Grid.GetPersistDataAsync())">Save State</SfButton>
+<SfButton OnClick="@(() => Grid.SetPersistDataAsync(_state))">Set State</SfButton>
+<SfButton OnClick="@(() => Grid.ResetPersistDataAsync())">Reset State</SfButton>
 
-<SfGrid @ref="Grid" DataSource="@plants" EnablePersistence="true" AllowPaging="true" AllowSorting="true"
+<SfGrid DataSource="@plants" AllowPaging="true" AllowSorting="true"
     Toolbar="@(new List<string>() { "Add", "Edit", "Delete", "Cancel", "Update", "Search" })">
-    <GridPageSettings PageSize="5"></GridPageSettings>
     <GridSearchSettings Fields=@InitSearch Operator=Syncfusion.Blazor.Operator.Contains IgnoreCase="true">
     </GridSearchSettings>
     <GridEditSettings AllowEditing="true" AllowAdding="true" AllowDeleting="true"></GridEditSettings>
-    <GridColumns>
-        <GridColumn Field="@nameof(PlantData.PlantID)" HeaderText="Plant ID"></GridColumn>
-        <GridColumn Field="@nameof(PlantData.Name)" HeaderText="Plant Name"></GridColumn>
-        <GridColumn Field="@nameof(PlantData.Variety)" HeaderText="Variety"></GridColumn>
-        <GridColumn Field="@nameof(PlantData.GardenID)" HeaderText="Garden ID"></GridColumn>
-    </GridColumns>
 </SfGrid>
 
 
 
 @code {
     SfGrid<PlantData> Grid;
+    public string _state;
+
     private IEnumerable<PlantData> plants = Array.Empty<PlantData>();
     protected override async Task OnInitializedAsync()
     {
         plants = await PlantService.GetPlants();
-    }
-    public async void ToolbarClickHandler(Syncfusion.Blazor.Navigations.ClickEventArgs args)
-    {
-        if (args.Item.Text == "Edit")
-        {
-        }
     }
 }

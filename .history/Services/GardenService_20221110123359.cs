@@ -16,7 +16,8 @@ namespace SmardenV3.Services
         }
         public async Task<HttpResponseMessage> PostGarden(GardenData garden)
         {
-            return await httpClient.PostAsJsonAsync("https://localhost:7137/api/Garden", garden);
+            var response =  await httpClient.PostAsJsonAsync("https://localhost:7137/api/Garden", garden);
+            return response;
         }
     }
 }

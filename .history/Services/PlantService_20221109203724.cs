@@ -13,9 +13,5 @@ namespace SmardenV3.Services
         {
             return await httpClient.GetFromJsonAsync<IEnumerable<PlantData>>("https://localhost:7137/api/Plant");
         }
-        public async Task<HttpResponseMessage> PostPlant(PlantData plant)
-        {
-            return await httpClient.PostAsJsonAsync("https://localhost:7137/api/Plant", plant);
-        }
     }
 }
