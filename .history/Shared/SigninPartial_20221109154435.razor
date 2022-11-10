@@ -1,0 +1,65 @@
+@using System.Text.Json
+@using System.Text.Json.Serialization
+@inject IHttpClientFactory ClientFactory
+@namespace SmardenV3.Shared.SigninPartial
+<div id="login-error-msg-holder">
+    <p id="login-error-msg">Invalid username <span id="error-msg-second-line">and/or password</span></p>
+</div>
+
+<form id="login-form">
+    <input type="text" name="username" id="username-field" class="login-form-field" placeholder="Username">
+    <input type="password" name="password" id="password-field" class="login-form-field" placeholder="Password">
+    <button class="btn-info" id="login-form-submit" @onclick="CheckUserExists">Login</button>
+</form>
+
+
+
+@code {
+    private IEnumerable<UserData> users = Array.Empty<UserData>();
+    private bool getuserError;
+    private bool shouldRender;
+    protected override bool ShouldRender() => shouldRender;
+
+    protected override async Task OnInitializedAsync()
+    {
+
+        var request = new HttpRequestMessage(HttpMethod.Get,
+        "https://localhost:7137/api/user");
+
+        var client = ClientFactory.CreateClient();
+
+        HttpResponseMessage response = new HttpResponseMessage();
+        try
+        {
+            response = await client.SendAsync(request);
+        }
+        catch (Exception e)
+        {
+            getuserError = true;
+        }
+        finally
+        {
+            if (!getuserError)
+            {
+                using var responseStream = await response.Content.ReadAsStreamAsync();
+                users = await JsonSerializer.DeserializeAsync
+                <IEnumerable<UserData>>(responseStream);
+            }
+
+            shouldRender = true;
+        }
+    }
+    public class UserData
+    {
+        [JsonPropertyName("userId")]
+        public int UserID { get; set; }
+        [JsonPropertyName("userName")]
+        public string Name { get; set; }
+        [JsonPropertyName("userPassword")]
+        public string Password { get; set; }
+        [JsonPropertyName("customerName")]
+        public string CustomerName { get; set; }
+        [JsonPropertyName("customerAddress")]
+        public string CustomerAddress { get; set; }
+    }
+}

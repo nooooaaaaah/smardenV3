@@ -8,77 +8,77 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = SmardenV3
 build_property.RootNamespace = SmardenV3
-build_property.ProjectDir = C:\Users\nspiel\OneDrive - Colostate\CIS410\smardenV3\
+build_property.ProjectDir = C:\Users\Noah\Documents\stall\CIS410_Project\smardenV3\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\nspiel\OneDrive - Colostate\CIS410\smardenV3
+build_property.MSBuildProjectDirectory = C:\Users\Noah\Documents\stall\CIS410_Project\smardenV3
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/nspiel/OneDrive - Colostate/CIS410/smardenV3/App.razor]
+[C:/Users/Noah/Documents/stall/CIS410_Project/smardenV3/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nspiel/OneDrive - Colostate/CIS410/smardenV3/Pages/Counter.razor]
+[C:/Users/Noah/Documents/stall/CIS410_Project/smardenV3/Pages/Counter.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nspiel/OneDrive - Colostate/CIS410/smardenV3/Pages/Features/Calendar.razor]
+[C:/Users/Noah/Documents/stall/CIS410_Project/smardenV3/Pages/Features/Calendar.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmVhdHVyZXNcQ2FsZW5kYXIucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nspiel/OneDrive - Colostate/CIS410/smardenV3/Pages/Features/Gardens.razor]
+[C:/Users/Noah/Documents/stall/CIS410_Project/smardenV3/Pages/Features/Gardens.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmVhdHVyZXNcR2FyZGVucy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nspiel/OneDrive - Colostate/CIS410/smardenV3/Pages/Features/Kanban.razor]
+[C:/Users/Noah/Documents/stall/CIS410_Project/smardenV3/Pages/Features/Kanban.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmVhdHVyZXNcS2FuYmFuLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nspiel/OneDrive - Colostate/CIS410/smardenV3/Pages/Features/Plants.razor]
+[C:/Users/Noah/Documents/stall/CIS410_Project/smardenV3/Pages/Features/Plants.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmVhdHVyZXNcUGxhbnRzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nspiel/OneDrive - Colostate/CIS410/smardenV3/Pages/Index.razor]
+[C:/Users/Noah/Documents/stall/CIS410_Project/smardenV3/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nspiel/OneDrive - Colostate/CIS410/smardenV3/Pages/Login/LoginPage.razor]
+[C:/Users/Noah/Documents/stall/CIS410_Project/smardenV3/Pages/Login/LoginPage.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW5cTG9naW5QYWdlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nspiel/OneDrive - Colostate/CIS410/smardenV3/Shared/APIerror.razor]
+[C:/Users/Noah/Documents/stall/CIS410_Project/smardenV3/Shared/APIerror.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXEFQSWVycm9yLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nspiel/OneDrive - Colostate/CIS410/smardenV3/Shared/SigninPartial.razor]
+[C:/Users/Noah/Documents/stall/CIS410_Project/smardenV3/Shared/SigninPartial.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFNpZ25pblBhcnRpYWwucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nspiel/OneDrive - Colostate/CIS410/smardenV3/Shared/TableTemplate.razor]
+[C:/Users/Noah/Documents/stall/CIS410_Project/smardenV3/Shared/TableTemplate.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFRhYmxlVGVtcGxhdGUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nspiel/OneDrive - Colostate/CIS410/smardenV3/_Imports.razor]
+[C:/Users/Noah/Documents/stall/CIS410_Project/smardenV3/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nspiel/OneDrive - Colostate/CIS410/smardenV3/Shared/MainLayout.razor]
+[C:/Users/Noah/Documents/stall/CIS410_Project/smardenV3/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-hviwomtupx
 
-[C:/Users/nspiel/OneDrive - Colostate/CIS410/smardenV3/Shared/NavMenu.razor]
+[C:/Users/Noah/Documents/stall/CIS410_Project/smardenV3/Shared/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-g076hgns7k
 
-[C:/Users/nspiel/OneDrive - Colostate/CIS410/smardenV3/Pages/Error.cshtml]
+[C:/Users/Noah/Documents/stall/CIS410_Project/smardenV3/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nspiel/OneDrive - Colostate/CIS410/smardenV3/Pages/_Host.cshtml]
+[C:/Users/Noah/Documents/stall/CIS410_Project/smardenV3/Pages/_Host.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0hvc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nspiel/OneDrive - Colostate/CIS410/smardenV3/Pages/_Layout.cshtml]
+[C:/Users/Noah/Documents/stall/CIS410_Project/smardenV3/Pages/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0xheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
