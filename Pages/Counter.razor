@@ -17,14 +17,14 @@ else
 @code {
     private int? currentCount;
 
-private async Task IncrementCount()
-{
-    currentCount++;
-    await ProtectedSessionStore.SetAsync("count", currentCount);
-}
-protected override async Task OnInitializedAsync()
-{
-    var result = await ProtectedSessionStore.GetAsync<int>("count");
-    currentCount = result.Success ? result.Value : 0;
-}
+    private async Task IncrementCount()
+    {
+        currentCount++;
+        await ProtectedSessionStore.SetAsync("count", currentCount);
+    }
+    protected override async Task OnInitializedAsync()
+    {
+        var result = await ProtectedSessionStore.GetAsync<int>("count");
+        currentCount = result.Success ? result.Value : 0;
+    }
 }
