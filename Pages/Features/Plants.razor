@@ -1,8 +1,11 @@
 @page "/plants"
 
 @using System.Dynamic
+@using Syncfusion.Blazor
+@using Syncfusion.Blazor.Data
 @using Syncfusion.Blazor.Grids
 @using SmardenV3.Data
+@using Syncfusion.Blazor.Navigations
 
 @inject IPlantService PlantService
 
@@ -16,33 +19,75 @@
 <h3 class="text-info">Plants</h3><br>
 
 
-<SfGrid @ref="Grid" DataSource="@plants" EnablePersistence="true" AllowPaging="true" AllowSorting="true"
-    Toolbar="@(new List<string>() { "Add", "Edit", "Delete", "Cancel", "Update", "Search" })">
-    <GridPageSettings PageSize="5"></GridPageSettings>
+<SfGrid DataSource="@plants" EnablePersistence="true" AllowPaging="true" AllowSorting="true" Toolbar="@ToolbarItems">
+    <GridEvents OnActionComplete="ActionComplete" TValue="PlantData"></GridEvents>
+    <GridEditSettings AllowAdding="true" AllowEditing="true" AllowDeleting="true" Mode="EditMode.Normal">
+    </GridEditSettings>
+    <GridPageSettings PageSize="15"></GridPageSettings>
     <GridSearchSettings Fields=@InitSearch Operator=Syncfusion.Blazor.Operator.Contains IgnoreCase="true">
     </GridSearchSettings>
-    <GridEditSettings AllowEditing="true" AllowAdding="true" AllowDeleting="true"></GridEditSettings>
     <GridColumns>
-        <GridColumn Field="@nameof(PlantData.PlantID)" HeaderText="Plant ID"></GridColumn>
+        <GridColumn Field="@nameof(PlantData.PlantID)" HeaderText="Plant ID" IsPrimaryKey="true" IsIdentity="true">
+        </GridColumn>
         <GridColumn Field="@nameof(PlantData.Name)" HeaderText="Plant Name"></GridColumn>
         <GridColumn Field="@nameof(PlantData.Variety)" HeaderText="Variety"></GridColumn>
-        <GridColumn Field="@nameof(PlantData.GardenID)" HeaderText="Garden ID"></GridColumn>
+        <GridColumn Field="@nameof(PlantData.GardenID)" HeaderText="Garden ID" EditType="EditType.DropDownEdit">
+        </GridColumn>
     </GridColumns>
 </SfGrid>
 
 
 
 @code {
+    List<string> ToolbarItems = new List<string> { "Add", "Edit", "Delete", "Update", "Cancel" };
+    @* PlantData p = new PlantData
+        {
+        Name = "Pepper",
+        Variety = "anahiem",
+        GardenID = 1
+        }; *@
     SfGrid<PlantData> Grid;
-    private IEnumerable<PlantData> plants = Array.Empty<PlantData>();
+    public IEnumerable<PlantData> plants = Array.Empty<PlantData>();
     protected override async Task OnInitializedAsync()
     {
         plants = await PlantService.GetPlants();
-    }
-    public async void ToolbarClickHandler(Syncfusion.Blazor.Navigations.ClickEventArgs args)
-    {
-        if (args.Item.Text == "Edit")
+        @* await PlantService.PostPlant(p); *@
+        foreach (var plant in plants)
         {
+            Console.WriteLine(plant.Name);
+        }
+    }
+
+    public void ActionComplete(ActionEventArgs<PlantData> args)
+    {
+        if (args.RequestType == Syncfusion.Blazor.Grids.Action.BeginEdit)
+        {
+            // Triggers once editing operation completes
+            Console.WriteLine("BeginEdit: ", args);
+        }
+        else if (args.RequestType == Syncfusion.Blazor.Grids.Action.Add)
+        {
+            Console.WriteLine("Add: ", args);
+            // Triggers once add operation completes
+        }
+        else if (args.RequestType == Syncfusion.Blazor.Grids.Action.Cancel)
+        {
+            Console.WriteLine("Cancel: ", args);
+            // Triggers once cancel operation completes
+        }
+        else if (args.RequestType == Syncfusion.Blazor.Grids.Action.Save)
+        {
+            Console.WriteLine("Save: ", args);
+            if (args.Action == "Add")
+            {
+                PlantService.PostPlant(args.Data);
+            }
+            // Triggers once save operation completes
+        }
+        else if (args.RequestType == Syncfusion.Blazor.Grids.Action.Delete)
+        {
+            Console.WriteLine("Delete: ", args);
+            // Triggers once delete operation completes
         }
     }
 }
