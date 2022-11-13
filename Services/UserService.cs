@@ -13,5 +13,10 @@ namespace SmardenV3.Services
         {
             return await httpClient.GetFromJsonAsync<IEnumerable<UserData>>("https://localhost:7137/api/User");
         }
+
+        public async Task<HttpResponseMessage> LoginUser(LoginData login)
+        {
+            return await httpClient.PostAsJsonAsync("https://localhost:7137/api/login", login);
+        }
     }
 }

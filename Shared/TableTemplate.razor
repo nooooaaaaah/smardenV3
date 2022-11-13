@@ -18,10 +18,10 @@
 
 @code {
     [Parameter]
-    public RenderFragment? TableHeader { get; set; }
+    public RenderFragment TableHeader { get; set; }
 
     [Parameter]
-    public RenderFragment<TItem>? RowTemplate { get; set; }
+    public RenderFragment<TItem> RowTemplate { get; set; }
 
     [Parameter, AllowNull]
     public IEnumerable<TItem> Items { get; set; }

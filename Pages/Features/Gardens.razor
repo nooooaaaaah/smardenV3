@@ -12,23 +12,62 @@
     var Tool = (new List<string>() { "Search" });
 }
 
-
 <h3 class="text-info">Gardens</h3><br>
 
-<SfGrid DataSource="@gardens" AllowPaging="true" AllowSorting="true"
-    Toolbar="@(new List<string>() { "Add", "Edit", "Delete", "Cancel", "Update", "Search" })">
+<SfGrid DataSource="@gardens" AllowPaging="true" AllowSorting="true" Toolbar="@ToolbarItems">
+    <GridEvents OnActionComplete="ActionComplete" TValue="GardenData"></GridEvents>
     <GridSearchSettings Fields=@InitSearch Operator=Syncfusion.Blazor.Operator.Contains IgnoreCase="true">
     </GridSearchSettings>
-    <GridEditSettings AllowEditing="true" AllowAdding="true" AllowDeleting="true"></GridEditSettings>
+    <GridEditSettings AllowEditing="true" AllowAdding="true" AllowDeleting="true" Mode="EditMode.Normal">
+    </GridEditSettings>
+    <GridColumns>
+        <GridColumn Field="@nameof(GardenData.GardenID)" HeaderText="Garden ID" IsPrimaryKey="true" IsIdentity="true">
+        </GridColumn>
+        <GridColumn Field="@nameof(GardenData.Name)" HeaderText="Garden Name"></GridColumn>
+        <GridColumn Field="@nameof(UserData.UserID)" HeaderText="User ID" EditType="EditType.DropDownEdit"></GridColumn>
+    </GridColumns>
 </SfGrid>
 
 
 @code {
+    List<string> ToolbarItems = new List<string> { "Add", "Edit", "Delete", "Update", "Cancel" };
     private IEnumerable<GardenData> gardens = Array.Empty<GardenData>();
     protected override async Task OnInitializedAsync()
     {
         gardens = await GardenService.GetGardens();
     }
 
+    public void ActionComplete(ActionEventArgs<GardenData> args)
+    {
+        if (args.RequestType == Syncfusion.Blazor.Grids.Action.BeginEdit)
+        {
+            // Triggers once editing operation completes
+            Console.WriteLine("BeginEdit: ", args);
+        }
+        else if (args.RequestType == Syncfusion.Blazor.Grids.Action.Add)
+        {
+            Console.WriteLine("Add: ", args);
+            // Triggers once add operation completes
+        }
+        else if (args.RequestType == Syncfusion.Blazor.Grids.Action.Cancel)
+        {
+            Console.WriteLine("Cancel: ", args);
+            // Triggers once cancel operation completes
+        }
+        else if (args.RequestType == Syncfusion.Blazor.Grids.Action.Save)
+        {
+            Console.WriteLine("Save: ", args);
+            if (args.Action == "Add")
+            {
+                GardenService.PostGarden(args.Data);
+            }
+            // Triggers once save operation completes
+        }
+        else if (args.RequestType == Syncfusion.Blazor.Grids.Action.Delete)
+        {
+            Console.WriteLine("Delete: ", args);
+            // Triggers once delete operation completes
+        }
+    }
 
 }

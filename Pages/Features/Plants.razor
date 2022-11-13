@@ -15,9 +15,7 @@
     var Tool = (new List<string>() { "Search" });
 }
 
-
 <h3 class="text-info">Plants</h3><br>
-
 
 <SfGrid DataSource="@plants" EnablePersistence="true" AllowPaging="true" AllowSorting="true" Toolbar="@ToolbarItems">
     <GridEvents OnActionComplete="ActionComplete" TValue="PlantData"></GridEvents>
@@ -52,10 +50,10 @@
     {
         plants = await PlantService.GetPlants();
         @* await PlantService.PostPlant(p); *@
-        foreach (var plant in plants)
+        @* foreach (var plant in plants)
         {
             Console.WriteLine(plant.Name);
-        }
+        } *@
     }
 
     public void ActionComplete(ActionEventArgs<PlantData> args)
