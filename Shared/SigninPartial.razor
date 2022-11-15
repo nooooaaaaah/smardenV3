@@ -1,4 +1,6 @@
 @using SmardenV3.Data
+@using System.Text.Json;
+@using System.Text.Json.Serialization;
 @inject IUserService UserService
 
 @namespace SmardenV3.Shared.SigninPartial
@@ -8,24 +10,29 @@
 </div>
 
 <div id="login-form">
-    <input type="text" name="username" id="username-field" class="login-form-field" placeholder="Username" @bind="getUserInfo.UserName"/>
-    <input type="password" name="password" id="password-field" class="login-form-field" placeholder="Password" @bind="getUserInfo.Password"/>
-    <button onclick="AttemptLogin">Login</button>
+    <input type="text" name="username" id="username-field" class="login-form-field" placeholder="Username"
+        @bind="getUserInfo.UserName" />
+    <input type="password" name="password" id="password-field" class="login-form-field" placeholder="Password"
+        @bind="getUserInfo.Password" />
+    <button @onclick="AttemptLogin">Login</button>
 </div>
 
-<p>@user</p>
+<p>@response : @foo</p>
 
 @code {
-    Task<HttpResponseMessage> user;
-    private LoginData getUserInfo = new LoginData{};
+    HttpResponseMessage response;
+    string foo;
+    UserData user;
+private LoginData getUserInfo = new LoginData { };
     @* protected override async Task OnInitializedAsync()
-    {
-    } *@
+        {
+        } *@
 
-    // NOTE: Doesnt Do anything 
+    // NOTE: Doesnt Do anything
     // TODO
-    private void AttemptLogin(LoginData getUserInfo)
+    private async void AttemptLogin()
     {
-        user = UserService.LoginUser(getUserInfo);
+        response = await UserService.LoginUser(getUserInfo);
+        foo = response.Content.ToString();
     }
 }

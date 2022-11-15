@@ -1839,19 +1839,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Noah\\.nuget\\packages\\": {}
+    "/Users/noahspielman/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Noah\\Documents\\stall\\CIS410_Project\\smardenV3\\SmardenV3.csproj",
+      "projectUniqueName": "/Users/noahspielman/Projects/CS410 Workspace/smardenV3/SmardenV3.csproj",
       "projectName": "SmardenV3",
-      "projectPath": "C:\\Users\\Noah\\Documents\\stall\\CIS410_Project\\smardenV3\\SmardenV3.csproj",
-      "packagesPath": "C:\\Users\\Noah\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Noah\\Documents\\stall\\CIS410_Project\\smardenV3\\obj\\",
+      "projectPath": "/Users/noahspielman/Projects/CS410 Workspace/smardenV3/SmardenV3.csproj",
+      "packagesPath": "/Users/noahspielman/.nuget/packages/",
+      "outputPath": "/Users/noahspielman/Projects/CS410 Workspace/smardenV3/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Noah\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "/Users/noahspielman/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -1919,7 +1919,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.402/RuntimeIdentifierGraph.json"
       }
     }
   }

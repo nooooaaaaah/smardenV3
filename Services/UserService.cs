@@ -4,6 +4,7 @@ namespace SmardenV3.Services
 {
     public class UserService : IUserService
     {
+        Task<HttpResponseMessage> response;
         private readonly HttpClient httpClient;
         public UserService(HttpClient httpClient)
         {
