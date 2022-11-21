@@ -1,4 +1,5 @@
 ﻿@inherits LayoutComponentBase
+@using SmardenV3.Data
 
 <PageTitle>SmardenV3</PageTitle>
 
@@ -9,9 +10,16 @@
 
     <main>
         <div class="top-row nav-item px-3">
+            @if (loggedInUser.Name == null)
+            {
             <NavLink class="nav-link" href="/login" Match="NavLinkMatch.All">
                 <span class="oi oi-account-login" aria-hidden="true"></span> Login / Sign Up
             </NavLink>
+            }
+            else
+            {
+            <h3>@loggedInUser.CustomerName</h3>
+            }
         </div>
 
         <article class="content px-4">
@@ -19,3 +27,13 @@
         </article>
     </main>
 </div>
+
+@code
+{
+    UserData loggedInUser = new UserData { };
+    protected override async Task OnInitializedAsync()
+    {
+        var result = await ProtectedSessionStore.GetAsync<UserData>("user");
+        loggedInUser = result.Value;
+    }
+}
