@@ -36,22 +36,25 @@
     {
         gardens = await GardenService.GetGardens();
     }
+        UserData? loggedInUser;
+    protected override async Task OnParametersSetAsync()
+    {
+        var result = await ProtectedSessionStore.GetAsync<UserData>("user");
+        loggedInUser = result.Success ? result.Value : null;
+    }
 
     public void ActionComplete(ActionEventArgs<GardenData> args)
     {
         if (args.RequestType == Syncfusion.Blazor.Grids.Action.BeginEdit)
         {
             // Triggers once editing operation completes
-            Console.WriteLine("BeginEdit: ", args);
         }
         else if (args.RequestType == Syncfusion.Blazor.Grids.Action.Add)
         {
-            Console.WriteLine("Add: ", args);
             // Triggers once add operation completes
         }
         else if (args.RequestType == Syncfusion.Blazor.Grids.Action.Cancel)
         {
-            Console.WriteLine("Cancel: ", args);
             // Triggers once cancel operation completes
         }
         else if (args.RequestType == Syncfusion.Blazor.Grids.Action.Save)
@@ -61,11 +64,15 @@
             {
                 GardenService.PostGarden(args.Data);
             }
+            else if (args.Action == "Edit")
+            {
+                GardenService.EditGarden(args.Data);
+            }
             // Triggers once save operation completes
         }
         else if (args.RequestType == Syncfusion.Blazor.Grids.Action.Delete)
         {
-            Console.WriteLine("Delete: ", args);
+            GardenService.DeleteGarden(args.Data.GardenID);
             // Triggers once delete operation completes
         }
     }

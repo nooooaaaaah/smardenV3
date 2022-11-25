@@ -51,12 +51,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL0FQSWVycm9yLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/noahspielman/Projects/CS410 Workspace/smardenV3/Shared/SigninPartial.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL1NpZ25pblBhcnRpYWwucmF6b3I=
+[/Users/noahspielman/Projects/CS410 Workspace/smardenV3/Shared/logInNOut/LogOutPartial.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL2xvZ0luTk91dC9Mb2dPdXRQYXJ0aWFsLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/noahspielman/Projects/CS410 Workspace/smardenV3/Shared/TableTemplate.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL1RhYmxlVGVtcGxhdGUucmF6b3I=
+[/Users/noahspielman/Projects/CS410 Workspace/smardenV3/Shared/logInNOut/SigninPartial.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL2xvZ0luTk91dC9TaWduaW5QYXJ0aWFsLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/noahspielman/Projects/CS410 Workspace/smardenV3/_Imports.razor]

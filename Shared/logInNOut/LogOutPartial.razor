@@ -1,0 +1,15 @@
+@using SmardenV3.Data
+@inject IUserService UserService
+@inject ProtectedSessionStorage ProtectedSessionStore
+@inject NavigationManager NavManager
+@namespace SmardenV3.Shared.logInNOut.LogOutPartial
+
+
+<button class="btn btn-dark" @onclick="Logout">Logout</button>
+
+@code{
+    private void Logout(){
+        ProtectedSessionStore.SetAsync("user", null);
+        NavManager.NavigateTo("/");
+    }
+}
