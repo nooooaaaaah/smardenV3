@@ -1,5 +1,8 @@
 ﻿@inherits LayoutComponentBase
+@using SmardenV3.Shared.logInNOut.LogOutPartial
 @using SmardenV3.Data
+@inject ProtectedSessionStorage ProtectedSessionStore
+
 
 <PageTitle>SmardenV3</PageTitle>
 
@@ -10,15 +13,17 @@
 
     <main>
         <div class="top-row nav-item px-3">
-            @if (loggedInUser.Name == null)
+            @if (loggedInUser == null)
             {
-            <NavLink class="nav-link" href="/login" Match="NavLinkMatch.All">
-                <span class="oi oi-account-login" aria-hidden="true"></span> Login / Sign Up
-            </NavLink>
+                <NavLink class="nav-link" href="/login" Match="NavLinkMatch.All">
+                    <span class="oi oi-account-login" aria-hidden="true"></span> Login / Sign Up
+                </NavLink>
             }
             else
             {
-            <h3>@loggedInUser.CustomerName</h3>
+                <h3 class="p-3" >@loggedInUser.CustomerName</h3>
+                @* TODO: Logout button *@
+                <LogOutPartial/>
             }
         </div>
 
@@ -30,10 +35,11 @@
 
 @code
 {
-    UserData loggedInUser = new UserData { };
-    protected override async Task OnInitializedAsync()
+    UserData? loggedInUser;
+    protected override async Task OnParametersSetAsync()
     {
         var result = await ProtectedSessionStore.GetAsync<UserData>("user");
-        loggedInUser = result.Value;
+        loggedInUser = result.Success ? result.Value : null;
     }
+    
 }

@@ -61,11 +61,17 @@
             {
                 GardenService.PostGarden(args.Data);
             }
+            Console.WriteLine(args.Action);
+            if (args.Action == "Edit")
+            {
+                GardenService.EditGarden(args.Data);
+            }
             // Triggers once save operation completes
         }
         else if (args.RequestType == Syncfusion.Blazor.Grids.Action.Delete)
         {
             Console.WriteLine("Delete: ", args);
+            GardenService.DeleteGarden(args.Data.GardenID);
             // Triggers once delete operation completes
         }
     }
