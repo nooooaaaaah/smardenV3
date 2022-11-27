@@ -64,7 +64,12 @@
             {
                 GardenService.PostGarden(args.Data);
             }
+<<<<<<< HEAD
             else if (args.Action == "Edit")
+=======
+            Console.WriteLine(args.Action);
+            if (args.Action == "Edit")
+>>>>>>> 73c1dfc3829de207a3ebaa4a64b8fd2957d54487
             {
                 GardenService.EditGarden(args.Data);
             }
@@ -72,6 +77,10 @@
         }
         else if (args.RequestType == Syncfusion.Blazor.Grids.Action.Delete)
         {
+<<<<<<< HEAD
+=======
+            Console.WriteLine("Delete: ", args);
+>>>>>>> 73c1dfc3829de207a3ebaa4a64b8fd2957d54487
             GardenService.DeleteGarden(args.Data.GardenID);
             // Triggers once delete operation completes
         }
