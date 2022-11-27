@@ -18,7 +18,7 @@
         @bind="getUserInfo.Password" />
     <button @onclick="AttemptLogin">Login</button>
 </div>
-@if (loggedIn && user.Name != null)
+@if (loggedIn && user != null)
 {
     <p>successfuly logged in</p>
 }
@@ -31,14 +31,15 @@
     bool loggedIn = true;
     UserData? user = new UserData { };
     private LoginData getUserInfo = new LoginData { };
-    @* UserData loggedInUser = new UserData { }; *@
 
     private async Task AttemptLogin()
     {
         response = await UserService.LoginUser(getUserInfo);
         user = await response.Content.ReadFromJsonAsync<UserData>();
-
-        await ProtectedSessionStore.SetAsync("user", user);
+        if (user != null)
+        {
+            await ProtectedSessionStore.SetAsync("user", user);
+        }
         loggedIn = response.IsSuccessStatusCode;
         if (loggedIn)
         {

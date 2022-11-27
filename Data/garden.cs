@@ -7,7 +7,7 @@ namespace SmardenV3.Data
         [JsonPropertyName("gardenId")]
         public int GardenID { get; set; }
         [JsonPropertyName("gardenName")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
         [JsonPropertyName("userId")]
         public int UserID { get; set; }
     }

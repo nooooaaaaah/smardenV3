@@ -14,6 +14,10 @@ namespace SmardenV3.Services
         {
             return await httpClient.GetFromJsonAsync<IEnumerable<GardenData>>("https://localhost:7137/api/Garden");
         }
+        public async Task<IEnumerable<GardenData>> GetUsersGardens(int userID)
+        {
+            return await httpClient.GetFromJsonAsync<IEnumerable<GardenData>>("https://localhost:7137/api/Garden/user/"+userID);
+        }
         public async Task<HttpResponseMessage> PostGarden(GardenData garden)
         {
             return await httpClient.PostAsJsonAsync("https://localhost:7137/api/Garden", garden);
