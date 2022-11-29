@@ -1,0 +1,40 @@
+@using SmardenV3.Data
+@inject IKanbanService KanbanService
+@inject ProtectedSessionStorage ProtectedSessionStore
+
+@namespace SmardenV3.Shared.AddTask
+
+<button class="e-btn" @onclick="ShowFormOnClick">Add New Card</button>
+@if (show)
+{
+    <div class="form-group p-1">
+    <label for="title-field">Enter Task Name</label>
+    <input type="text" name="Title" id="title-field" class="form-control" placeholder="Title" />
+    <label for="status-field">Enter Status</label>
+    <input type="text" name="Satus" id="status-field" class="form-control" placeholder="Open" />
+    <label for="summary-field">Enter Task Name</label>
+    <input type="text" name="Summary" id="summary-field" class="form-control" placeholder="Summary" />
+    <label for="userID-field">Enter Task Name</label>
+    <input type="int" name="UserID" id="userID-field" class="form-control" placeholder="UserID" />
+</div>
+    <button class="e-btn" @onclick="CloseFormOnClick">Close</button>
+
+}
+
+@code {
+    KanbanData task = new KanbanData { };
+    bool show = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        task.KanbanId = 0;
+    }
+    protected void ShowFormOnClick()
+    {
+        show = true;
+    }
+    protected void CloseFormOnClick()
+    {
+        show = false;
+    }
+}
