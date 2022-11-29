@@ -7,10 +7,12 @@ namespace SmardenV3.Data
         [JsonPropertyName("jobId")]
         public int KanbanId { get; set; }
         [JsonPropertyName("title")]
-        public string Title { get; set; }
+        public string? Title { get; set; }
         [JsonPropertyName("status")]
-        public string Status { get; set; }
+        public string? Status { get; set; }
         [JsonPropertyName("summary")]
-        public string Summary { get; set; }
+        public string? Summary { get; set; }
+        [JsonPropertyName("UserId")]
+        public int UserID { get; set; }
     }
 }

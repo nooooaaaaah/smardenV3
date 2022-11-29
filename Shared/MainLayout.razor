@@ -13,17 +13,17 @@
 
     <main>
         <div class="top-row nav-item px-3">
-            @if (loggedInUser == null)
+            @if (loggedInUser != null)
+            {
+                <h3 class="p-3">@loggedInUser.CustomerName</h3>
+                @* TODO: Logout button *@
+                <LogOutPartial />
+            }
+            else
             {
                 <NavLink class="nav-link" href="/login" Match="NavLinkMatch.All">
                     <span class="oi oi-account-login" aria-hidden="true"></span> Login / Sign Up
                 </NavLink>
-            }
-            else
-            {
-                <h3 class="p-3" >@loggedInUser.CustomerName</h3>
-                @* TODO: Logout button *@
-                <LogOutPartial/>
             }
         </div>
 
@@ -35,11 +35,11 @@
 
 @code
 {
-    UserData? loggedInUser;
+    UserData? loggedInUser = null;
     protected override async Task OnParametersSetAsync()
     {
         var result = await ProtectedSessionStore.GetAsync<UserData>("user");
         loggedInUser = result.Success ? result.Value : null;
     }
-    
+
 }

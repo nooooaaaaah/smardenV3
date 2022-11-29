@@ -13,9 +13,21 @@ namespace SmardenV3.Services
         {
             return await httpClient.GetFromJsonAsync<IEnumerable<PlantData>>("https://localhost:7137/api/Plant");
         }
+        public async Task<IEnumerable<PlantData>> GetPlantByGarden(int gardenID)
+        {
+            return await httpClient.GetFromJsonAsync<IEnumerable<PlantData>>("https://localhost:7137/api/Plant/garden/" + gardenID);
+        }
         public async Task<HttpResponseMessage> PostPlant(PlantData plant)
         {
             return await httpClient.PostAsJsonAsync("https://localhost:7137/api/Plant", plant);
+        }
+        public async Task<HttpResponseMessage> EditPlant(PlantData plant)
+        {
+            return await httpClient.PutAsJsonAsync("https://localhost:7137/api/Plant/" + plant.PlantID, plant);
+        }
+        public async Task<HttpResponseMessage> DeletePlant(int plantID)
+        {
+            return await httpClient.DeleteAsync("https://localhost:7137/api/Plant/" + plantID);
         }
     }
 }

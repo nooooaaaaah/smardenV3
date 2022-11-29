@@ -1,13 +1,9 @@
 @page "/plants"
 
-@using System.Dynamic
-@using Syncfusion.Blazor
-@using Syncfusion.Blazor.Data
 @using Syncfusion.Blazor.Grids
 @using SmardenV3.Data
-@using Syncfusion.Blazor.Navigations
-
 @inject IPlantService PlantService
+@inject ProtectedSessionStorage ProtectedSessionStore
 
 
 @{
@@ -16,6 +12,10 @@
 }
 
 <h3 class="text-info">Plants</h3><br>
+<div class="p-3">
+    <input type="text" name="GardenID" id="gardenID-field" class="form-field" placeholder="GardenID" @bind="gardenID" />
+    <button @onclick="LoadPlants" class="btn btn-outline-primary">Load</button>
+</div>
 
 <SfGrid DataSource="@plants" EnablePersistence="true" AllowPaging="true" AllowSorting="true" Toolbar="@ToolbarItems">
     <GridEvents OnActionComplete="ActionComplete" TValue="PlantData"></GridEvents>
@@ -35,57 +35,52 @@
 </SfGrid>
 
 
-
 @code {
+    int gardenID;
     List<string> ToolbarItems = new List<string> { "Add", "Edit", "Delete", "Update", "Cancel" };
-    @* PlantData p = new PlantData
-        {
-        Name = "Pepper",
-        Variety = "anahiem",
-        GardenID = 1
-        }; *@
-    SfGrid<PlantData> Grid;
+    SfGrid<PlantData>? Grid;
     public IEnumerable<PlantData> plants = Array.Empty<PlantData>();
+    private IEnumerable<GardenData>? gardens = Array.Empty<GardenData>();
     protected override async Task OnInitializedAsync()
     {
-        plants = await PlantService.GetPlants();
-        @* await PlantService.PostPlant(p); *@
-        @* foreach (var plant in plants)
+        var result = await ProtectedSessionStore.GetAsync<IEnumerable<GardenData>>("gardens");
+        gardens = result.Success ? result.Value : null;
+        if (gardens != null)
         {
-            Console.WriteLine(plant.Name);
-        } *@
-    }
+            plants = await PlantService.GetPlantByGarden(gardenID);
+            Console.WriteLine("plants on Init: " + plants);
 
+        }
+    }
     public void ActionComplete(ActionEventArgs<PlantData> args)
     {
-        if (args.RequestType == Syncfusion.Blazor.Grids.Action.BeginEdit)
-        {
-            // Triggers once editing operation completes
-            Console.WriteLine("BeginEdit: ", args);
-        }
-        else if (args.RequestType == Syncfusion.Blazor.Grids.Action.Add)
-        {
-            Console.WriteLine("Add: ", args);
-            // Triggers once add operation completes
-        }
-        else if (args.RequestType == Syncfusion.Blazor.Grids.Action.Cancel)
-        {
-            Console.WriteLine("Cancel: ", args);
-            // Triggers once cancel operation completes
-        }
-        else if (args.RequestType == Syncfusion.Blazor.Grids.Action.Save)
+        if (args.RequestType == Syncfusion.Blazor.Grids.Action.Save)
         {
             Console.WriteLine("Save: ", args);
             if (args.Action == "Add")
             {
                 PlantService.PostPlant(args.Data);
             }
+            else if (args.Action == "Edit")
+            {
+                PlantService.EditPlant(args.Data);
+            }
             // Triggers once save operation completes
         }
         else if (args.RequestType == Syncfusion.Blazor.Grids.Action.Delete)
         {
-            Console.WriteLine("Delete: ", args);
+            PlantService.DeletePlant(args.Data.PlantID);
             // Triggers once delete operation completes
         }
+    }
+    public async void LoadPlants()
+    {
+        @* Console.WriteLine("gardenId: " + gardenID); *@
+        plants = await PlantService.GetPlantByGarden(gardenID);
+        @* Console.WriteLine("\nplants plants: ");
+            foreach (PlantData item in plants)
+            {
+            Console.WriteLine(item.Name);
+            } *@
     }
 }

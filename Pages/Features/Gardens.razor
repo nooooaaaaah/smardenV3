@@ -1,11 +1,9 @@
 ﻿@page "/gardens"
-@using System.Text.Json
-@using System.Text.Json.Serialization
-@using Syncfusion.Blazor.Inputs
 @using Syncfusion.Blazor.Grids
 @using SmardenV3.Data
 @inject NavigationManager NavManager
 @inject IGardenService GardenService
+@inject ProtectedSessionStorage ProtectedSessionStore
 
 
 @{
@@ -41,32 +39,16 @@
         if (loggedInUser != null)
         {
             gardens = await GardenService.GetUsersGardens(loggedInUser.UserID);
+            await ProtectedSessionStore.SetAsync("gardens", gardens);
         }
         else
         {
             NavManager.NavigateTo("/login");
         }
     }
-    @* protected override async Task OnParametersSetAsync()
-        {
-
-        } *@
-
     public void ActionComplete(ActionEventArgs<GardenData> args)
     {
-        if (args.RequestType == Syncfusion.Blazor.Grids.Action.BeginEdit)
-        {
-            // Triggers once editing operation completes
-        }
-        else if (args.RequestType == Syncfusion.Blazor.Grids.Action.Add)
-        {
-            // Triggers once add operation completes
-        }
-        else if (args.RequestType == Syncfusion.Blazor.Grids.Action.Cancel)
-        {
-            // Triggers once cancel operation completes
-        }
-        else if (args.RequestType == Syncfusion.Blazor.Grids.Action.Save)
+        if (args.RequestType == Syncfusion.Blazor.Grids.Action.Save)
         {
             Console.WriteLine("Save: ", args);
             if (args.Action == "Add")
@@ -81,10 +63,8 @@
         }
         else if (args.RequestType == Syncfusion.Blazor.Grids.Action.Delete)
         {
-            Console.WriteLine("Delete: ", args);
             GardenService.DeleteGarden(args.Data.GardenID);
             // Triggers once delete operation completes
         }
     }
-
 }
