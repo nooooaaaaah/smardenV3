@@ -1,0 +1,21 @@
+@page "/signup"
+@using SmardenV3.Data
+
+@* Todo finish signup page *@
+<div class=" bg-info bg-opacity-25">
+    <label for="username-field">Username</label>
+    <input type="text" name="Username" id="username-field" class="form-control" @bind="newUser.Name" />
+    <label for="Password-field">Password</label>
+    <input type="text" name="Password" id="Password-field" class="form-control" @bind="newUser.Password" />
+    <label for="CustomerName-field">CustomerName</label>
+    <input type="text" name="CustomerName" id="CustomerName-field" class="form-control" @bind="newUser.CustomerName" />
+    <label for="CustomerAddress-field">CustomerAddress</label>
+    <input type="text" name="CustomerAddress" id="CustomerAddress-field" class="form-control"
+        @bind="newUser.CustomerAddress" />
+</div>
+
+
+@code {
+    UserData newUser = new UserData { };
+
+}

@@ -1,9 +1,5 @@
 @page "/calendar"
-@using System.Text.Json
-@using System.Text.Json.Serialization
-@using Syncfusion.Blazor.Calendars
 @using Syncfusion.Blazor.Schedule
-@using Syncfusion.Blazor.Inputs
 @using SmardenV3.Data
 
 @inject IEventService EventService
@@ -14,6 +10,7 @@
 @* help: https://blazor.syncfusion.com/documentation/scheduler/getting-started/ *@
 <div>
     <SfSchedule TValue="EventData">
+        <ScheduleEvents TValue="EventData" ActionCompleted="OnActionCompleted"></ScheduleEvents>
         <ScheduleEventSettings DataSource="@events"></ScheduleEventSettings>
         <ScheduleViews>
             <ScheduleView Option="View.Day"></ScheduleView>
@@ -27,9 +24,37 @@
 
 @code {
     private IEnumerable<EventData> events = Array.Empty<EventData>();
+    UserData? loggedInUser = new UserData() { };
+
     protected override async Task OnInitializedAsync()
     {
-        events = await EventService.GetEvents();
+        var result = await ProtectedSessionStore.GetAsync<UserData>("user");
+        loggedInUser = result.Success ? result.Value : null;
+        if (loggedInUser != null)
+        {
+            events = await EventService.GetUsersEvents(loggedInUser.UserID);
+        }
+    }
+    public void OnActionCompleted(ActionEventArgs<EventData> args)
+    {
+        Console.WriteLine(args.ActionType);
+        if (args.ActionType == ActionType.EventCreate)
+        {
+            args.AddedRecords.SingleOrDefault()!.UserID = loggedInUser!.UserID;
+            Console.WriteLine("Create");
+            EventService.PostEvent(args.AddedRecords.SingleOrDefault()!);
+        }
+        if (args.ActionType == ActionType.EventChange)
+        {
+            Console.WriteLine("Change");
+            EventService.EditEvent(args.ChangedRecords.SingleOrDefault()!);
+        }
+        if (args.ActionType == ActionType.EventRemove)
+        {
+            Console.WriteLine("Remove");
+            EventService.DeleteEvent(args.DeletedRecords.SingleOrDefault()!.EventId);
+        }
+
     }
 
 }

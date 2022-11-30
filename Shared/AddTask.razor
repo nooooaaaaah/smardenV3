@@ -1,33 +1,51 @@
 @using SmardenV3.Data
 @inject IKanbanService KanbanService
 @inject ProtectedSessionStorage ProtectedSessionStore
+@inject IKanbanService KanbanService
+@inject NavigationManager NavManager
+
 
 @namespace SmardenV3.Shared.AddTask
 
 <button class="e-btn" @onclick="ShowFormOnClick">Add New Card</button>
 @if (show)
 {
-    <div class="form-group p-1">
+    <EditForm Model=@task class="form-group p-1">
+
     <label for="title-field">Enter Task Name</label>
-    <input type="text" name="Title" id="title-field" class="form-control" placeholder="Title" />
+    <input type="text" name="Title" id="title-field" class="form-control" placeholder="Title" @bind="task.Title" />
     <label for="status-field">Enter Status</label>
-    <input type="text" name="Satus" id="status-field" class="form-control" placeholder="Open" />
+    <input type="text" name="Status" id="status-field" class="form-control" placeholder="Open" @bind="task.Status" />
     <label for="summary-field">Enter Task Name</label>
-    <input type="text" name="Summary" id="summary-field" class="form-control" placeholder="Summary" />
-    <label for="userID-field">Enter Task Name</label>
-    <input type="int" name="UserID" id="userID-field" class="form-control" placeholder="UserID" />
-</div>
-    <button class="e-btn" @onclick="CloseFormOnClick">Close</button>
+    <input type="text" name="Summary" id="summary-field" class="form-control" placeholder="Summary"
+        @bind=task.Summary />
+</EditForm>
+    <button class="e-btn m-1" @onclick="PostTask">Submit</button>
+    <button class="e-btn m-1" @onclick="CloseFormOnClick">Close</button>
 
 }
 
 @code {
+    private IEnumerable<KanbanData> tasks = Array.Empty<KanbanData>();
     KanbanData task = new KanbanData { };
+    UserData? currentUser;
     bool show = false;
+    [Parameter]
+    public EventCallback<MouseEventArgs> OnAddTaskCallback { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
-        task.KanbanId = 0;
+        var result = await ProtectedSessionStore.GetAsync<UserData>("user");
+        currentUser = result.Success ? result.Value : null;
+        if (currentUser != null)
+        {
+            task.UserID = currentUser.UserID;
+            task.Status = "Open";
+        }
+        else
+        {
+            NavManager.NavigateTo("/login");
+        }
     }
     protected void ShowFormOnClick()
     {
@@ -36,5 +54,14 @@
     protected void CloseFormOnClick()
     {
         show = false;
+    }
+    protected async Task PostTask(MouseEventArgs e)
+    {
+        if (task != null)
+        {
+            await KanbanService.PostKanban(task);
+        }
+        await OnAddTaskCallback.InvokeAsync();
+
     }
 }

@@ -12,7 +12,7 @@ namespace SmardenV3.Data
         public string? Status { get; set; }
         [JsonPropertyName("summary")]
         public string? Summary { get; set; }
-        [JsonPropertyName("UserId")]
+        [JsonPropertyName("userId")]
         public int UserID { get; set; }
     }
 }

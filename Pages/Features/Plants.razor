@@ -13,11 +13,11 @@
 
 <h3 class="text-info">Plants</h3><br>
 <div class="p-3">
-    <input type="text" name="GardenID" id="gardenID-field" class="form-field" placeholder="GardenID" @bind="gardenID" />
+    <input type="text" name="GardenID" id="gardenID-field" class=" form-text" placeholder="GardenID" @bind="gardenID" />
     <button @onclick="LoadPlants" class="btn btn-outline-primary">Load</button>
 </div>
 
-<SfGrid DataSource="@plants" EnablePersistence="true" AllowPaging="true" AllowSorting="true" Toolbar="@ToolbarItems">
+<SfGrid DataSource="plants" EnablePersistence="true" AllowPaging="true" AllowSorting="true" Toolbar="@ToolbarItems">
     <GridEvents OnActionComplete="ActionComplete" TValue="PlantData"></GridEvents>
     <GridEditSettings AllowAdding="true" AllowEditing="true" AllowDeleting="true" Mode="EditMode.Normal">
     </GridEditSettings>
@@ -29,7 +29,7 @@
         </GridColumn>
         <GridColumn Field="@nameof(PlantData.Name)" HeaderText="Plant Name"></GridColumn>
         <GridColumn Field="@nameof(PlantData.Variety)" HeaderText="Variety"></GridColumn>
-        <GridColumn Field="@nameof(PlantData.GardenID)" HeaderText="Garden ID" EditType="EditType.DropDownEdit">
+        <GridColumn Field="@nameof(PlantData.GardenID)" HeaderText="Garden ID" EditType="EditType.NumericEdit">
         </GridColumn>
     </GridColumns>
 </SfGrid>
@@ -39,23 +39,23 @@
     int gardenID;
     List<string> ToolbarItems = new List<string> { "Add", "Edit", "Delete", "Update", "Cancel" };
     SfGrid<PlantData>? Grid;
+    UserData? loggedInUser = new UserData() { };
     public IEnumerable<PlantData> plants = Array.Empty<PlantData>();
-    private IEnumerable<GardenData>? gardens = Array.Empty<GardenData>();
+    private IEnumerable<GardenData> gardens = Array.Empty<GardenData>();
     protected override async Task OnInitializedAsync()
     {
-        var result = await ProtectedSessionStore.GetAsync<IEnumerable<GardenData>>("gardens");
-        gardens = result.Success ? result.Value : null;
-        if (gardens != null)
+        var result = await ProtectedSessionStore.GetAsync<UserData>("user");
+        loggedInUser = result.Success ? result.Value : null;
+        if (loggedInUser != null)
         {
-            plants = await PlantService.GetPlantByGarden(gardenID);
-            Console.WriteLine("plants on Init: " + plants);
-
+            plants = await PlantService.GetPlantByUser(loggedInUser.UserID);
         }
     }
     public void ActionComplete(ActionEventArgs<PlantData> args)
     {
         if (args.RequestType == Syncfusion.Blazor.Grids.Action.Save)
         {
+            args.Data.UserID = loggedInUser!.UserID;
             Console.WriteLine("Save: ", args);
             if (args.Action == "Add")
             {
@@ -73,14 +73,22 @@
             // Triggers once delete operation completes
         }
     }
-    public async void LoadPlants()
+    public async Task LoadPlants()
     {
-        @* Console.WriteLine("gardenId: " + gardenID); *@
-        plants = await PlantService.GetPlantByGarden(gardenID);
-        @* Console.WriteLine("\nplants plants: ");
-            foreach (PlantData item in plants)
+        plants = await PlantService.GetPlantByUser(loggedInUser!.UserID);
+        List<PlantData> plantsByGarden = new List<PlantData> { };
+        foreach (PlantData plant in plants)
+        {
+            if (plant.GardenID == gardenID)
             {
-            Console.WriteLine(item.Name);
-            } *@
+                plantsByGarden.Add(plant);
+                Console.WriteLine(plant.Name);
+            }
+        }
+        foreach (PlantData p in plantsByGarden)
+        {
+            Console.WriteLine(p);
+        }
+        plants = plantsByGarden;
     }
 }

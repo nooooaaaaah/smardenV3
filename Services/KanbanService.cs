@@ -13,6 +13,10 @@ namespace SmardenV3.Services
         {
             return await httpClient.GetFromJsonAsync<IEnumerable<KanbanData>>("https://localhost:7137/api/Job");
         }
+        public async Task<IEnumerable<KanbanData>> GetKanbanByUser(int UserID)
+        {
+            return await httpClient.GetFromJsonAsync<IEnumerable<KanbanData>>("https://localhost:7137/api/Job/user/" + UserID);
+        }
         public async Task<HttpResponseMessage> PostKanban(KanbanData kanban)
         {
             return await httpClient.PostAsJsonAsync("https://localhost:7137/api/Job", kanban);

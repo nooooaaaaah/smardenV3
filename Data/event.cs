@@ -24,7 +24,7 @@ namespace SmardenV3.Data
         public string? RecurrenceException { get; set; }
         [JsonPropertyName("recurrenceID")]
         public Nullable<int> RecurrenceID { get; set; }
-        [JsonPropertyName("UserId")]
+        [JsonPropertyName("userId")]
         public int UserID { get; set; }
     }
 }

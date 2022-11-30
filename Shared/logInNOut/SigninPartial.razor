@@ -7,8 +7,8 @@
 @if (!loggedIn)
 {
     <div id="login-error-msg-holder">
-        <p id="login-error-msg">Invalid username <span id="error-msg-second-line">and/or password</span></p>
-    </div>
+    <p id="login-error-msg">Invalid username <span id="error-msg-second-line">and/or password</span></p>
+</div>
 }
 
 <div id="login-form">
@@ -16,7 +16,7 @@
         @bind="getUserInfo.UserName" />
     <input type="password" name="password" id="password-field" class="login-form-field" placeholder="Password"
         @bind="getUserInfo.Password" />
-    <button @onclick="AttemptLogin">Login</button>
+    <button class="e-btn btn-outline-danger" @onclick="AttemptLogin">Login</button>
 </div>
 @if (loggedIn && user != null)
 {

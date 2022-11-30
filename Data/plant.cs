@@ -12,5 +12,7 @@ namespace SmardenV3.Data
         public string? Variety { get; set; }
         [JsonPropertyName("gardenId")]
         public int GardenID { get; set; }
+        [JsonPropertyName("userId")]
+        public int UserID { get; set; }
     }
 }

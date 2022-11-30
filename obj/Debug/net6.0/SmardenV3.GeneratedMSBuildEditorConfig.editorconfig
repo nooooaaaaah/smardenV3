@@ -47,6 +47,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTG9naW4vTG9naW5QYWdlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/noahspielman/Projects/CS410 Workspace/smardenV3/Pages/Login/SignUpPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTG9naW4vU2lnblVwUGFnZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/noahspielman/Projects/CS410 Workspace/smardenV3/Shared/AddTask.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL0FkZFRhc2sucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 

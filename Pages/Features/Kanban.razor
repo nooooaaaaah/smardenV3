@@ -3,42 +3,70 @@
 @using SmardenV3.Shared.AddTask
 @using SmardenV3.Data
 @inject IKanbanService KanbanService
+@inject NavigationManager NavManager
 @inject ProtectedSessionStorage ProtectedSessionStore
 <div class="p-1">
-    <AddTask />
+    <AddTask OnAddTaskCallback="@TaskAdded" />
 </div>
-<SfKanban TValue="KanbanData" KeyField="Status" DataSource="kanbans">
+
+<SfKanban TValue="KanbanData" KeyField="Status" DataSource="tasks">
     <KanbanEvents TValue="KanbanData" ActionComplete="@ActionComplete"></KanbanEvents>
     <KanbanColumns>
-        <KanbanColumn HeaderText="Backlog" KeyField="@(new List<string>() {"Open"})"></KanbanColumn>
+        <KanbanColumn HeaderText="Todo" KeyField="@(new List<string>() {"Open"})"></KanbanColumn>
         <KanbanColumn HeaderText="In Progress" KeyField="@(new List<string>() {"InProgress"})"></KanbanColumn>
         <KanbanColumn HeaderText="Done" KeyField="@(new List<string>() {"Close"})"></KanbanColumn>
     </KanbanColumns>
-    <KanbanCardSettings HeaderField="Title" ContentField="Summary"></KanbanCardSettings>
+    <KanbanCardSettings ShowHeader="true" HeaderField="KanbanId" ContentField="Summary"
+        SelectionType="SelectionType.Multiple"></KanbanCardSettings>
+    <KanbanDialogSettings>
+        <KanbanDialogSettingsFields>
+            <KanbanDialogSettingsField Text="Title" Key="Title" Type=DialogFieldType.TextArea>
+            </KanbanDialogSettingsField>
+            <KanbanDialogSettingsField Text="Summary" Key="Summary" Type=DialogFieldType.TextArea>
+            </KanbanDialogSettingsField>
+            <KanbanDialogSettingsField Text="Status" Key="Status" Type=DialogFieldType.DropDown>
+            </KanbanDialogSettingsField>
+            <KanbanDialogSettingsField Text="ID" Key="KanbanId" Type=DialogFieldType.TextBox>
+            </KanbanDialogSettingsField>
+        </KanbanDialogSettingsFields>
+    </KanbanDialogSettings>
     <KanbanSwimlaneSettings AllowDragAndDrop="true"></KanbanSwimlaneSettings>
 </SfKanban>
 
 @code {
-    private IEnumerable<KanbanData> kanbans = Array.Empty<KanbanData>();
+    private IEnumerable<KanbanData> tasks = Array.Empty<KanbanData>();
+    KanbanData? task;
+    UserData? loggedInUser = new UserData() { };
+
     protected override async Task OnInitializedAsync()
     {
-        kanbans = await KanbanService.GetKanbans();
+        var result = await ProtectedSessionStore.GetAsync<UserData>("user");
+        loggedInUser = result.Success ? result.Value : null;
+        if (loggedInUser != null)
+        {
+            tasks = await KanbanService.GetKanbanByUser(loggedInUser.UserID);
+        }
     }
     public void ActionComplete(ActionEventArgs<KanbanData> args)
     {
-        Console.WriteLine("aflsdjksdfjklasdjklasdfkl");
-        Console.WriteLine(args.RequestType);
-        foreach (KanbanData record in args.ChangedRecords)
-        {
-            Console.WriteLine(record.Status);
-        }
+        @* Console.WriteLine(args.RequestType); *@
+        args.ChangedRecords.SingleOrDefault()!.UserID = loggedInUser!.UserID;
         if (args.RequestType == "cardChange")
         {
-            KanbanService.EditKanban(args.ChangedRecords.SingleOrDefault());
+            KanbanService.EditKanban(args.ChangedRecords.SingleOrDefault()!);
+        }
+        else if (args.RequestType == "cardRemove")
+        {
+            task = args.DeletedRecords.SingleOrDefault();
+            if (task != null)
+            {
+                KanbanService.DeleteKanban(task.KanbanId);
+            }
         }
     }
-    private void ShowAddCardDialog()
+    public async Task TaskAdded()
     {
-
+        tasks = await KanbanService.GetKanbans();
     }
+
 }
