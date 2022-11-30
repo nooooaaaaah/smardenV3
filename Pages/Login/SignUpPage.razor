@@ -1,8 +1,11 @@
 @page "/signup"
 @using SmardenV3.Data
+@inject IUserService UserService
+@inject NavigationManager NavManager
+@inject ProtectedSessionStorage ProtectedSessionStore
 
 @* Todo finish signup page *@
-<div class=" bg-info bg-opacity-25">
+<div class="">
     <label for="username-field">Username</label>
     <input type="text" name="Username" id="username-field" class="form-control" @bind="newUser.Name" />
     <label for="Password-field">Password</label>
@@ -13,9 +16,44 @@
     <input type="text" name="CustomerAddress" id="CustomerAddress-field" class="form-control"
         @bind="newUser.CustomerAddress" />
 </div>
+<button class="btn-warning btn mt-2" @onclick="SignUpOnClick">Create Account</button>
+
+@if (error)
+{
+    <p>Try Again</p>
+}
 
 
 @code {
     UserData newUser = new UserData { };
+    HttpResponseMessage? response;
+    bool error = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var result = await ProtectedSessionStore.GetAsync<UserData>("user");
+        UserData? loggedInUser = result.Success ? result.Value : null;
+        if (loggedInUser != null)
+        {
+            NavManager.NavigateTo("/");
+        }
+    }
+    private async Task SignUpOnClick()
+    {
+        if (newUser.Name != null && newUser.Password != null && newUser.CustomerName != null)
+        {
+            response = await UserService.PostUser(newUser);
+            UserData? userResponseContent = await response.Content.ReadFromJsonAsync<UserData>();
+            if (userResponseContent != null)
+            {
+                await ProtectedSessionStore.SetAsync("user", newUser);
+                NavManager.NavigateTo("/");
+            }
+        }
+        else
+        {
+            error = true;
+        }
+    }
 
 }

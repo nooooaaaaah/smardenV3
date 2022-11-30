@@ -8,85 +8,85 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = SmardenV3
 build_property.RootNamespace = SmardenV3
-build_property.ProjectDir = /Users/noahspielman/Projects/CS410 Workspace/smardenV3/
+build_property.ProjectDir = C:\Users\Noah\Documents\stall\CIS410_Project\smardenV3\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = /Users/noahspielman/Projects/CS410 Workspace/smardenV3
+build_property.MSBuildProjectDirectory = C:\Users\Noah\Documents\stall\CIS410_Project\smardenV3
 build_property._RazorSourceGeneratorDebug = 
 
-[/Users/noahspielman/Projects/CS410 Workspace/smardenV3/App.razor]
+[C:/Users/Noah/Documents/stall/CIS410_Project/smardenV3/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/noahspielman/Projects/CS410 Workspace/smardenV3/Pages/Counter.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ291bnRlci5yYXpvcg==
+[C:/Users/Noah/Documents/stall/CIS410_Project/smardenV3/Pages/Counter.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/noahspielman/Projects/CS410 Workspace/smardenV3/Pages/Features/Calendar.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRmVhdHVyZXMvQ2FsZW5kYXIucmF6b3I=
+[C:/Users/Noah/Documents/stall/CIS410_Project/smardenV3/Pages/Features/Calendar.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmVhdHVyZXNcQ2FsZW5kYXIucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/noahspielman/Projects/CS410 Workspace/smardenV3/Pages/Features/Gardens.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRmVhdHVyZXMvR2FyZGVucy5yYXpvcg==
+[C:/Users/Noah/Documents/stall/CIS410_Project/smardenV3/Pages/Features/Gardens.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmVhdHVyZXNcR2FyZGVucy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/noahspielman/Projects/CS410 Workspace/smardenV3/Pages/Features/Kanban.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRmVhdHVyZXMvS2FuYmFuLnJhem9y
+[C:/Users/Noah/Documents/stall/CIS410_Project/smardenV3/Pages/Features/Kanban.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmVhdHVyZXNcS2FuYmFuLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/noahspielman/Projects/CS410 Workspace/smardenV3/Pages/Features/Plants.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRmVhdHVyZXMvUGxhbnRzLnJhem9y
+[C:/Users/Noah/Documents/stall/CIS410_Project/smardenV3/Pages/Features/Plants.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmVhdHVyZXNcUGxhbnRzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/noahspielman/Projects/CS410 Workspace/smardenV3/Pages/Index.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSW5kZXgucmF6b3I=
+[C:/Users/Noah/Documents/stall/CIS410_Project/smardenV3/Pages/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/noahspielman/Projects/CS410 Workspace/smardenV3/Pages/Login/LoginPage.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTG9naW4vTG9naW5QYWdlLnJhem9y
+[C:/Users/Noah/Documents/stall/CIS410_Project/smardenV3/Pages/Login/LoginPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW5cTG9naW5QYWdlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/noahspielman/Projects/CS410 Workspace/smardenV3/Pages/Login/SignUpPage.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTG9naW4vU2lnblVwUGFnZS5yYXpvcg==
+[C:/Users/Noah/Documents/stall/CIS410_Project/smardenV3/Pages/Login/SignUpPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW5cU2lnblVwUGFnZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/noahspielman/Projects/CS410 Workspace/smardenV3/Shared/AddTask.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL0FkZFRhc2sucmF6b3I=
+[C:/Users/Noah/Documents/stall/CIS410_Project/smardenV3/Shared/AddTask.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXEFkZFRhc2sucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/noahspielman/Projects/CS410 Workspace/smardenV3/Shared/APIerror.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL0FQSWVycm9yLnJhem9y
+[C:/Users/Noah/Documents/stall/CIS410_Project/smardenV3/Shared/APIerror.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXEFQSWVycm9yLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/noahspielman/Projects/CS410 Workspace/smardenV3/Shared/logInNOut/LogOutPartial.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL2xvZ0luTk91dC9Mb2dPdXRQYXJ0aWFsLnJhem9y
+[C:/Users/Noah/Documents/stall/CIS410_Project/smardenV3/Shared/logInNOut/LogOutPartial.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXGxvZ0luTk91dFxMb2dPdXRQYXJ0aWFsLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/noahspielman/Projects/CS410 Workspace/smardenV3/Shared/logInNOut/SigninPartial.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL2xvZ0luTk91dC9TaWduaW5QYXJ0aWFsLnJhem9y
+[C:/Users/Noah/Documents/stall/CIS410_Project/smardenV3/Shared/logInNOut/SigninPartial.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXGxvZ0luTk91dFxTaWduaW5QYXJ0aWFsLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/noahspielman/Projects/CS410 Workspace/smardenV3/_Imports.razor]
+[C:/Users/Noah/Documents/stall/CIS410_Project/smardenV3/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/noahspielman/Projects/CS410 Workspace/smardenV3/Shared/MainLayout.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL01haW5MYXlvdXQucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = b-kuqv94nod1
+[C:/Users/Noah/Documents/stall/CIS410_Project/smardenV3/Shared/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-hviwomtupx
 
-[/Users/noahspielman/Projects/CS410 Workspace/smardenV3/Shared/NavMenu.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL05hdk1lbnUucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = b-a0fc7m8m8g
+[C:/Users/Noah/Documents/stall/CIS410_Project/smardenV3/Shared/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-g076hgns7k
 
-[/Users/noahspielman/Projects/CS410 Workspace/smardenV3/Pages/Error.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRXJyb3IuY3NodG1s
+[C:/Users/Noah/Documents/stall/CIS410_Project/smardenV3/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/noahspielman/Projects/CS410 Workspace/smardenV3/Pages/_Host.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvX0hvc3QuY3NodG1s
+[C:/Users/Noah/Documents/stall/CIS410_Project/smardenV3/Pages/_Host.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0hvc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/noahspielman/Projects/CS410 Workspace/smardenV3/Pages/_Layout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvX0xheW91dC5jc2h0bWw=
+[C:/Users/Noah/Documents/stall/CIS410_Project/smardenV3/Pages/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0xheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
