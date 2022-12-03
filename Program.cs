@@ -13,6 +13,7 @@ builder.Services.AddHttpClient<IGardenService, GardenService>();
 builder.Services.AddHttpClient<IKanbanService, KanbanService>();
 builder.Services.AddHttpClient<IEventService, EventService>();
 builder.Services.AddSyncfusionBlazor();
+builder.WebHost.UseUrls("https://*:7103");
 
 var app = builder.Build();
 

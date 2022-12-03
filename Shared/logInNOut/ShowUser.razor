@@ -1,0 +1,27 @@
+@inherits LayoutComponentBase
+@using SmardenV3.Shared.logInNOut.LogOutPartial
+@using SmardenV3.Data
+@inject ProtectedSessionStorage ProtectedSessionStore
+@namespace SmardenV3.Shared.logInNOut.ShowUser
+
+@if (loggedInUser != null)
+{
+    <h3 class="mt-2 d-sm-none">@loggedInUser.CustomerName</h3>
+    <LogOutPartial CustomClass="d-sm-none" />
+}
+else
+{
+    <NavLink class="nav-item text-white-50 d-sm-none" href="login">
+    <span class="oi oi-account-login" aria-hidden="true"></span> Login / Sign Up
+</NavLink>
+}
+
+
+@code {
+    UserData? loggedInUser = null;
+    protected override async Task OnParametersSetAsync()
+    {
+        var result = await ProtectedSessionStore.GetAsync<UserData>("user");
+        loggedInUser = result.Success ? result.Value : null;
+    }
+}
