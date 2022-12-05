@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\SmardenV3.props" />
+</Project>

@@ -10,8 +10,12 @@ namespace SmardenV3.Data
         public string? Name { get; set; }
         [JsonPropertyName("userPassword")]
         public string? Password { get; set; }
+
         [JsonPropertyName("customerName")]
         public string? CustomerName { get; set; }
+        [JsonPropertyName("customerEmail")]
+        public string? CustomerEmail { get; set; }
+
         [JsonPropertyName("customerAddress")]
         public string? CustomerAddress { get; set; }
     }
