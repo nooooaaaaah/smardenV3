@@ -9,13 +9,25 @@ h1 {
   color: #7f00ff;
   font-size: 28px;
   font-weight: bold;
-  text-align: center;
 }
 
 p {
   font-size: 18px;
   line-height: 1.5;
-  text-align: center;
+}
+.login-form {
+  width: 400px;
+}
+.login-form-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: 950px;
+}
+
+.text-purple {
+  color: #7f00ff;
 }
 
 h1:focus {
@@ -31,6 +43,11 @@ a,
   color: #fff;
   background-color: #1b6ec2;
   border-color: #1861ac;
+}
+.btn-indigo {
+  color: rgb(72, 25, 61);
+  background-color: #602f5d;
+  border-color: #3b142f;
 }
 
 .content {

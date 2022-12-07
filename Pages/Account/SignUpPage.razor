@@ -5,27 +5,34 @@
 @inject ProtectedSessionStorage ProtectedSessionStore
 
 @* Todo finish signup page *@
-<div class="login-form">
-    <label for="username-field">Username</label>
-    <input type="text" name="Username" id="username-field" class="form-control" @bind="newUser.Name" />
-    <label for="Password-field">Password</label>
-    <input type="text" name="Password" id="Password-field" class="form-control" @bind="newUser.Password" />
-    <label for="CustomerName-field">CustomerName</label>
-    <input type="text" name="CustomerName" id="CustomerName-field" class="form-control" @bind="newUser.CustomerName" />
-    <input type="text" name="customerAddress" id="email-address-field" class="form-control"
-        @bind="newUser.CustomerEmail" />
-    <label for="CustomerAddress-field">CustomerAddress</label>
-    <input type="text" name="CustomerAddress" id="CustomerAddress-field" class="form-control"
-        @bind="newUser.CustomerAddress" />
-    @if (error)
-    {
-        <p class="error-message">Try Again There was an error</p>
-    }
-    <button class="btn-warning btn mt-2" @onclick="SignUpOnClick">Create Account</button>
-
+<div class="login-form-container">
+    <div class="login-form">
+        <h1 class=" mx-auto  text-center mt-1"> Welcome</h1>
+        <p class="text-center">
+            Thank you for visiting our Smarden! We are excited to offer you a personalized experience tailored to your
+            needs.
+            Sign up now to create your account and access all of our features and services.
+        </p>
+        <label class="mt-2" for="username-field">Username</label>
+        <input type="text" name="Username" id="username-field" class=" p-1 form-control" @bind="newUser.Name" />
+        <label class="mt-2" for="Password-field">Password</label>
+        <input type="text" name="Password" id="Password-field" class=" p-1 form-control" @bind="newUser.Password" />
+        <label class="mt-2" for="CustomerName-field">Full Name</label>
+        <input type="text" name="CustomerName" id="CustomerName-field" class=" p-1 form-control"
+            @bind="newUser.CustomerName" />
+        <label class="mt-2" for="CustomerEmail-field">Email</label>
+        <input type="text" name="customerEmail" id="email-address-field" class=" p-1 form-control"
+            @bind="newUser.CustomerEmail" />
+        <label class="mt-2" for="CustomerAddress-field">Street Address</label>
+        <input type="text" name="CustomerAddress" id="CustomerAddress-field" class=" p-1 form-control"
+            @bind="newUser.CustomerAddress" />
+        @if (error)
+        {
+            <p class="error-message">Try Again There was an error</p>
+        }
+        <button class="btn-indigo btn mt-2 text-light" @onclick="SignUpOnClick">Create Account</button>
+    </div>
 </div>
-
-
 
 
 @code {

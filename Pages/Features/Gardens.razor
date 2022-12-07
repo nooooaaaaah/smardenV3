@@ -23,7 +23,6 @@
         <GridColumn Field="@nameof(GardenData.GardenID)" HeaderText="Garden ID" IsPrimaryKey="true" IsIdentity="true">
         </GridColumn>
         <GridColumn Field="@nameof(GardenData.Name)" HeaderText="Garden Name"></GridColumn>
-        <GridColumn Field="@nameof(UserData.UserID)" HeaderText="User ID" EditType="EditType.DropDownEdit"></GridColumn>
     </GridColumns>
 </SfGrid>
 
@@ -53,11 +52,15 @@
             Console.WriteLine("Save: ", args);
             if (args.Action == "Add")
             {
-                GardenService.PostGarden(args.Data);
+                GardenData g = args.Data;
+                g.UserID = loggedInUser!.UserID;
+                GardenService.PostGarden(g);
             }
             else if (args.Action == "Edit")
             {
-                GardenService.EditGarden(args.Data);
+                GardenData g = args.Data;
+                g.UserID = loggedInUser!.UserID;
+                GardenService.EditGarden(g);
             }
             // Triggers once save operation completes
         }

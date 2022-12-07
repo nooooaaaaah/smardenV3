@@ -1,5 +1,6 @@
 ﻿@page "/"
-
+@using SmardenV3.Shared.PictureGrid
+@using SmardenV3.Data
 <PageTitle>Index</PageTitle>
 
 <h1>Welcome to Smarden!</h1>
@@ -8,3 +9,14 @@
 <p>Get started by signing up for an account and adding your plants to your virtual garden. Then, you can track your
     plants' progress, monitor their health, and get tips and advice on how to keep your garden in top shape.</p>
 <p>We hope you enjoy using Smarden, and happy gardening!</p>
+
+<PictureGrid TItem="Picture" Pictures="pictures" />
+
+
+@code{
+    IEnumerable<Picture> pictures = new List<Picture>
+  {
+    new Picture { Src = "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/veg-garden-1525260021.jpg?crop=1.00xw:0.847xh;0,0.0596xh&resize=980:*", Alt = "Picture 1" },
+    // Add more pictures here...
+  };
+}

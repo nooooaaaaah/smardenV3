@@ -13,10 +13,11 @@ body[b-smdf102jwn] {
     181,
     0.279
   ); /* white background for the form*/
+  border-radius: 9px;
 }
 
 .form-control[b-smdf102jwn] {
-  background-color: #eee;
+  background-color: rgba(255, 255, 255, 0.5);
   border: none;
   color: #333;
   padding: 10px;

@@ -1,0 +1,20 @@
+@using System.Collections.Generic
+@using SmardenV3.Data 
+@typeparam TItem
+@namespace SmardenV3.Shared.PictureGrid
+
+<div class="picture-grid">
+  @foreach (var picture in Pictures)
+  {
+    <div class="picture-cell">
+      <img src="@picture.Src" alt="@picture.Alt" />
+    </div>
+  }
+</div>
+
+@code {
+  [Parameter]
+  public IEnumerable<Picture> Pictures { get; set; }
+
+
+}
