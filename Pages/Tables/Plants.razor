@@ -1,0 +1,94 @@
+@page "/plants"
+
+@using Syncfusion.Blazor.Grids
+@using SmardenV3.Data
+@inject IPlantService PlantService
+@inject ProtectedSessionStorage ProtectedSessionStore
+
+
+@{
+    var InitSearch = (new string[] { "PlantID", "Name" });
+    var Tool = (new List<string>() { "Search" });
+}
+
+<h3 class="text-info">Plants</h3><br>
+<div class="p-3">
+    <input type="text" name="GardenID" id="gardenID-field" class=" form-text" placeholder="GardenID" @bind="gardenID" />
+    <button @onclick="LoadPlants" class="btn btn-outline-primary">Load</button>
+</div>
+
+<SfGrid DataSource="plants" EnablePersistence="true" AllowPaging="true" AllowSorting="true" Toolbar="@ToolbarItems">
+    <GridEvents OnActionComplete="ActionComplete" TValue="PlantData"></GridEvents>
+    <GridEditSettings AllowAdding="true" AllowEditing="true" AllowDeleting="true" Mode="EditMode.Normal">
+    </GridEditSettings>
+    <GridPageSettings PageSize="15"></GridPageSettings>
+    <GridSearchSettings Fields=@InitSearch Operator=Syncfusion.Blazor.Operator.Contains IgnoreCase="true">
+    </GridSearchSettings>
+    <GridColumns>
+        <GridColumn Field="@nameof(PlantData.PlantID)" HeaderText="Plant ID" IsPrimaryKey="true" IsIdentity="true">
+        </GridColumn>
+        <GridColumn Field="@nameof(PlantData.Name)" HeaderText="Plant Name"></GridColumn>
+        <GridColumn Field="@nameof(PlantData.Variety)" HeaderText="Variety"></GridColumn>
+        <GridColumn Field="@nameof(PlantData.GardenID)" HeaderText="Garden ID" EditType="EditType.NumericEdit">
+        </GridColumn>
+    </GridColumns>
+</SfGrid>
+
+
+@code {
+    int gardenID;
+    List<string> ToolbarItems = new List<string> { "Add", "Edit", "Delete", "Update", "Cancel" };
+    SfGrid<PlantData>? Grid;
+    UserData? loggedInUser = new UserData() { };
+    public IEnumerable<PlantData> plants = Array.Empty<PlantData>();
+    private IEnumerable<GardenData> gardens = Array.Empty<GardenData>();
+    protected override async Task OnInitializedAsync()
+    {
+        var result = await ProtectedSessionStore.GetAsync<UserData>("user");
+        loggedInUser = result.Success ? result.Value : null;
+        if (loggedInUser != null)
+        {
+            plants = await PlantService.GetPlantByUser(loggedInUser.UserID);
+        }
+    }
+    public void ActionComplete(ActionEventArgs<PlantData> args)
+    {
+        if (args.RequestType == Syncfusion.Blazor.Grids.Action.Save)
+        {
+            args.Data.UserID = loggedInUser!.UserID;
+            Console.WriteLine("Save: ", args);
+            if (args.Action == "Add")
+            {
+                PlantService.PostPlant(args.Data);
+            }
+            else if (args.Action == "Edit")
+            {
+                PlantService.EditPlant(args.Data);
+            }
+            // Triggers once save operation completes
+        }
+        else if (args.RequestType == Syncfusion.Blazor.Grids.Action.Delete)
+        {
+            PlantService.DeletePlant(args.Data.PlantID);
+            // Triggers once delete operation completes
+        }
+    }
+    public async Task LoadPlants()
+    {
+        plants = await PlantService.GetPlantByUser(loggedInUser!.UserID);
+        List<PlantData> plantsByGarden = new List<PlantData> { };
+        foreach (PlantData plant in plants)
+        {
+            if (plant.GardenID == gardenID)
+            {
+                plantsByGarden.Add(plant);
+                Console.WriteLine(plant.Name);
+            }
+        }
+        foreach (PlantData p in plantsByGarden)
+        {
+            Console.WriteLine(p);
+        }
+        plants = plantsByGarden;
+    }
+}

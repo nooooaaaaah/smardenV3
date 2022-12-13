@@ -8,5 +8,4 @@ public interface IUserService
     Task<HttpResponseMessage> EditUserPassword(int userID, string newPassword);
     Task<HttpResponseMessage> DeleteUser(UserData user);
 
-
 }

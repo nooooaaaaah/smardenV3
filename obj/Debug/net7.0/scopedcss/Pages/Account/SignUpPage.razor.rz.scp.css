@@ -1,8 +1,8 @@
-body[b-smdf102jwn] {
+body[b-0llp8r3tht] {
   background-color: #7f00ff; /* purple background */
 }
 
-.login-form[b-smdf102jwn] {
+.login-form[b-0llp8r3tht] {
   max-width: 500px; /* set the maximum width of the form*/
   margin: 0 auto; /* center the form on the page*/
   padding: 20px; /* add some padding around the form*/
@@ -15,14 +15,14 @@ body[b-smdf102jwn] {
   border-radius: 9px;
 }
 
-.form-control[b-smdf102jwn] {
+.form-control[b-0llp8r3tht] {
   background-color: rgba(255, 255, 255, 0.5);
   border: none;
   color: #333;
   padding: 10px;
 }
 
-.error-message[b-smdf102jwn] {
+.error-message[b-0llp8r3tht] {
   color: #f00;
   font-size: 14px;
   font-weight: bold;
